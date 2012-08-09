@@ -1,23 +1,201 @@
-﻿Build started 9/08/2012 2:14:27 p.m..
-     1>Project "C:\Users\PeePeeSpeed\Desktop\Kinect Client\C++\SkeletalViewer\SkeletalViewer.vcxproj" on node 2 (build target(s)).
+﻿Build started 10/08/2012 9:22:57 a.m..
+     1>Project "C:\Users\KON\Documents\GitHub\MotionProject\Kinect Client\C++\SkeletalViewer\SkeletalViewer.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
-         Creating "Debug\SkeletalViewer.unsuccessfulbuild" because "AlwaysCreate" was specified.
+         Touching "Debug\SkeletalViewer.unsuccessfulbuild".
        ClCompile:
          All outputs are up-to-date.
-         All outputs are up-to-date.
-       ResourceCompile:
-         All outputs are up-to-date.
-       ManifestResourceCompile:
-         All outputs are up-to-date.
-       Link:
-         All outputs are up-to-date.
-       Manifest:
-         All outputs are up-to-date.
-       FinalizeBuildStatus:
-         Deleting file "Debug\SkeletalViewer.unsuccessfulbuild".
-         Touching "Debug\SkeletalViewer.lastbuildstate".
-     1>Done Building Project "C:\Users\PeePeeSpeed\Desktop\Kinect Client\C++\SkeletalViewer\SkeletalViewer.vcxproj" (build target(s)).
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\SkeletalViewer.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt MData.cpp NetworkModel.cpp NuiImpl.cpp SkeletalViewer.cpp
+         NetworkModel.cpp
+         MData.cpp
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(16): error C2146: syntax error : missing ';' before identifier 'bOrientations'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(46): error C3861: 'NuiSkeletonCalculateBoneOrientations': identifier not found
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(52): error C2228: left of '.startJoint' must have class/struct/union
+                 type is 'int'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(55): error C2228: left of '.endJoint' must have class/struct/union
+                 type is 'int'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(58): error C2228: left of '.absoluteRotation' must have class/struct/union
+                 type is 'int'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(58): error C2228: left of '.rotationQuaternion' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(58): error C2228: left of '.x' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(61): error C2228: left of '.absoluteRotation' must have class/struct/union
+                 type is 'int'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(61): error C2228: left of '.rotationQuaternion' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(61): error C2228: left of '.y' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(64): error C2228: left of '.absoluteRotation' must have class/struct/union
+                 type is 'int'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(64): error C2228: left of '.rotationQuaternion' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(64): error C2228: left of '.z' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(67): error C2228: left of '.absoluteRotation' must have class/struct/union
+                 type is 'int'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(67): error C2228: left of '.rotationQuaternion' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(67): error C2228: left of '.w' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(70): error C2228: left of '.absoluteRotation' must have class/struct/union
+                 type is 'int'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(70): error C2228: left of '.rotationMatrix' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(70): error C2228: left of '.M11' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(73): error C2228: left of '.absoluteRotation' must have class/struct/union
+                 type is 'int'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(73): error C2228: left of '.rotationMatrix' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(73): error C2228: left of '.M12' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(76): error C2228: left of '.absoluteRotation' must have class/struct/union
+                 type is 'int'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(76): error C2228: left of '.rotationMatrix' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(76): error C2228: left of '.M13' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(79): error C2228: left of '.absoluteRotation' must have class/struct/union
+                 type is 'int'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(79): error C2228: left of '.rotationMatrix' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(79): error C2228: left of '.M14' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(82): error C2228: left of '.absoluteRotation' must have class/struct/union
+                 type is 'int'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(82): error C2228: left of '.rotationMatrix' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(82): error C2228: left of '.M21' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(85): error C2228: left of '.absoluteRotation' must have class/struct/union
+                 type is 'int'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(85): error C2228: left of '.rotationMatrix' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(85): error C2228: left of '.M22' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(88): error C2228: left of '.absoluteRotation' must have class/struct/union
+                 type is 'int'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(88): error C2228: left of '.rotationMatrix' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(88): error C2228: left of '.M23' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(91): error C2228: left of '.absoluteRotation' must have class/struct/union
+                 type is 'int'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(91): error C2228: left of '.rotationMatrix' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(91): error C2228: left of '.M24' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(94): error C2228: left of '.absoluteRotation' must have class/struct/union
+                 type is 'int'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(94): error C2228: left of '.rotationMatrix' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(94): error C2228: left of '.M31' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(97): error C2228: left of '.absoluteRotation' must have class/struct/union
+                 type is 'int'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(97): error C2228: left of '.rotationMatrix' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(97): error C2228: left of '.M32' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(100): error C2228: left of '.absoluteRotation' must have class/struct/union
+                 type is 'int'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(100): error C2228: left of '.rotationMatrix' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(100): error C2228: left of '.M33' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(103): error C2228: left of '.absoluteRotation' must have class/struct/union
+                 type is 'int'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(103): error C2228: left of '.rotationMatrix' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(103): error C2228: left of '.M34' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(106): error C2228: left of '.absoluteRotation' must have class/struct/union
+                 type is 'int'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(106): error C2228: left of '.rotationMatrix' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(106): error C2228: left of '.M41' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(109): error C2228: left of '.absoluteRotation' must have class/struct/union
+                 type is 'int'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(109): error C2228: left of '.rotationMatrix' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(109): error C2228: left of '.M42' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(112): error C2228: left of '.absoluteRotation' must have class/struct/union
+                 type is 'int'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(112): error C2228: left of '.rotationMatrix' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(112): error C2228: left of '.M43' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(115): error C2228: left of '.absoluteRotation' must have class/struct/union
+                 type is 'int'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(115): error C2228: left of '.rotationMatrix' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(115): error C2228: left of '.M44' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(120): error C2228: left of '.hierarchicalRotation' must have class/struct/union
+                 type is 'int'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(120): error C2228: left of '.rotationQuaternion' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(120): error C2228: left of '.x' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(123): error C2228: left of '.hierarchicalRotation' must have class/struct/union
+                 type is 'int'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(123): error C2228: left of '.rotationQuaternion' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(123): error C2228: left of '.y' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(126): error C2228: left of '.hierarchicalRotation' must have class/struct/union
+                 type is 'int'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(126): error C2228: left of '.rotationQuaternion' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(126): error C2228: left of '.z' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(129): error C2228: left of '.hierarchicalRotation' must have class/struct/union
+                 type is 'int'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(129): error C2228: left of '.rotationQuaternion' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(129): error C2228: left of '.w' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(132): error C2228: left of '.hierarchicalRotation' must have class/struct/union
+                 type is 'int'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(132): error C2228: left of '.rotationMatrix' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(132): error C2228: left of '.M11' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(135): error C2228: left of '.hierarchicalRotation' must have class/struct/union
+                 type is 'int'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(135): error C2228: left of '.rotationMatrix' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(135): error C2228: left of '.M12' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(138): error C2228: left of '.hierarchicalRotation' must have class/struct/union
+                 type is 'int'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(138): error C2228: left of '.rotationMatrix' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(138): error C2228: left of '.M13' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(141): error C2228: left of '.hierarchicalRotation' must have class/struct/union
+                 type is 'int'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(141): error C2228: left of '.rotationMatrix' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(141): error C2228: left of '.M14' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(144): error C2228: left of '.hierarchicalRotation' must have class/struct/union
+                 type is 'int'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(144): error C2228: left of '.rotationMatrix' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(144): error C2228: left of '.M21' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(147): error C2228: left of '.hierarchicalRotation' must have class/struct/union
+                 type is 'int'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(147): error C2228: left of '.rotationMatrix' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(147): error C2228: left of '.M22' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(150): error C2228: left of '.hierarchicalRotation' must have class/struct/union
+                 type is 'int'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(150): error C2228: left of '.rotationMatrix' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(150): error C2228: left of '.M23' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(153): error C2228: left of '.hierarchicalRotation' must have class/struct/union
+                 type is 'int'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(153): error C2228: left of '.rotationMatrix' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(153): error C2228: left of '.M24' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(156): error C2228: left of '.hierarchicalRotation' must have class/struct/union
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\mdata.cpp(156): fatal error C1003: error count exceeds 100; stopping compilation
+         Generating Code...
+         Compiling...
+         NuiImpl.cpp
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\nuiimpl.cpp(481): warning C4101: 's' : unreferenced local variable
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\nuiimpl.cpp(916): warning C4995: 'sprintf': name was marked as #pragma deprecated
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\nuiimpl.cpp(916): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : see declaration of 'sprintf'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\nuiimpl.cpp(876): warning C4101: 's' : unreferenced local variable
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\nuiimpl.cpp(943): warning C4101: 's' : unreferenced local variable
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\nuiimpl.cpp(1019): warning C4995: 'sprintf': name was marked as #pragma deprecated
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\nuiimpl.cpp(1039): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : see declaration of 'sprintf'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\nuiimpl.cpp(1049): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\nuiimpl.cpp(1062): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\nuiimpl.cpp(1071): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\nuiimpl.cpp(1114): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdlib.h(867) : see declaration of 'itoa'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\nuiimpl.cpp(1118): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdlib.h(867) : see declaration of 'itoa'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\nuiimpl.cpp(1124): warning C4995: 'sprintf': name was marked as #pragma deprecated
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\nuiimpl.cpp(1124): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : see declaration of 'sprintf'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\nuiimpl.cpp(1127): warning C4995: 'sprintf': name was marked as #pragma deprecated
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\nuiimpl.cpp(1127): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : see declaration of 'sprintf'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\nuiimpl.cpp(1130): warning C4995: 'sprintf': name was marked as #pragma deprecated
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\nuiimpl.cpp(1130): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : see declaration of 'sprintf'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\nuiimpl.cpp(1133): warning C4995: 'sprintf': name was marked as #pragma deprecated
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\nuiimpl.cpp(1133): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : see declaration of 'sprintf'
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\nuiimpl.cpp(1146): warning C4101: 's' : unreferenced local variable
+     1>c:\users\kon\documents\github\motionproject\kinect client\c++\skeletalviewer\nuiimpl.cpp(1179): warning C4101: 's' : unreferenced local variable
+         Generating Code...
+         Compiling...
+         SkeletalViewer.cpp
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\cstdio(48): warning C4995: 'gets': name was marked as #pragma deprecated
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\cstdio(52): warning C4995: 'sprintf': name was marked as #pragma deprecated
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\cstdio(55): warning C4995: 'vsprintf': name was marked as #pragma deprecated
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\cstring(21): warning C4995: 'strcat': name was marked as #pragma deprecated
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\cstring(22): warning C4995: 'strcpy': name was marked as #pragma deprecated
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\cwchar(30): warning C4995: 'swprintf': name was marked as #pragma deprecated
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\cwchar(31): warning C4995: 'vswprintf': name was marked as #pragma deprecated
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\cwchar(33): warning C4995: 'wcscat': name was marked as #pragma deprecated
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\cwchar(35): warning C4995: 'wcscpy': name was marked as #pragma deprecated
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(757): warning C4995: 'swprintf': name was marked as #pragma deprecated
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(766): warning C4995: 'swprintf': name was marked as #pragma deprecated
+     1>c:\program files (x86)\microsoft visual studio 10.0\vc\include\string(775): warning C4995: 'swprintf': name was marked as #pragma deprecated
+         Generating Code...
+     1>Done Building Project "C:\Users\KON\Documents\GitHub\MotionProject\Kinect Client\C++\SkeletalViewer\SkeletalViewer.vcxproj" (build target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:00:00.20
+Time Elapsed 00:00:08.86

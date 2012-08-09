@@ -166,6 +166,7 @@
     <ClInclude Include="..\..\..\..\..\..\program files (x86)\microsoft sdks\windows\v7.0a\include\cderr.h" />
     <ClInclude Include="DrawDevice.h" />
     <ClInclude Include="MData.h" />
+    <ClInclude Include="NetworkModel.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="SkeletalViewer.h" />
     <ClInclude Include="Socket.h" />
@@ -175,6 +176,7 @@
   <ItemGroup>
     <ClCompile Include="DrawDevice.cpp" />
     <ClCompile Include="MData.cpp" />
+    <ClCompile Include="NetworkModel.cpp" />
     <ClCompile Include="NuiImpl.cpp" />
     <ClCompile Include="SkeletalViewer.cpp" />
     <ClCompile Include="Socket.cpp" />
