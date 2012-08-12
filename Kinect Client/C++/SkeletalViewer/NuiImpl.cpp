@@ -22,6 +22,7 @@
 
 //from James Bayliss
 #include "wtypes.h"
+#include "NetworkModel.h"
 
 //from PeePeeSpeed
 #include <Windows.h>
@@ -45,7 +46,6 @@ float skeletonFactor0 = 0;
 float skeletonFactor1 = 0;
 int skeletonNo = 0;
 
-SocketClient *socketClient;
 int drawCount;
 int screenWidth;
 int screenHeight;
@@ -54,6 +54,7 @@ float skeletonZ0 = 0;
 float skeletonZ1 = 0;
 bool connected = 0;
 MData movementDataHandler[ NUI_SKELETON_COUNT ];
+NetworkModel connection;
 //
 
 static const COLORREF g_JointColorTable[NUI_SKELETON_POSITION_COUNT] = 
@@ -405,33 +406,11 @@ DWORD WINAPI CSkeletalViewerApp::Nui_ProcessThread()
     HANDLE hEvents[numEvents] = { m_hEvNuiProcessStop, m_hNextDepthFrameEvent, m_hNextColorFrameEvent, m_hNextSkeletonEvent };
     int    nEventIdx;
     DWORD  t;
-	//////////////////////// dcRay //////////////////////
-	
-	attemptConnection();
-	
-	//THIS HAS BEEN MOVED TO ITS OWN FUNCTION, SEE BOTTOM
-	/*try {
-		//socketClient = new SocketClient("192.168.21.58", 9000);
-		socketClient = new SocketClient("127.0.0.1", 9000);
-		MessageBox(NULL, L"Socket connected", L"Sockets", MB_OK);
 
-		connected = 1;
-	  } 
-  
-	catch (const char* s) {
-	  OutputDebugString(L"Error");
-	  MessageBox(NULL, L"Error1", L"Error1", MB_OK);
-	} 
-  
-	catch (std::string s) {
-	  OutputDebugString(L"Error"); //contains 'Unknown Error'
-	  MessageBox(NULL, L"Error2", L"Error2", MB_OK);
-	} 
-	catch (...) {
-	  OutputDebugString(L"Error");
-	  MessageBox(NULL, L"Error3", L"Error3", MB_OK);
-	}*/
-  /////
+	//James Bayliss
+	connected = connection.connect("127.0.0.1", 9000);
+	//connect = connection.disconnect();
+
     m_LastDepthFPStime = timeGetTime( );
 
     //blank the skeleton display on startup
@@ -805,8 +784,6 @@ void CSkeletalViewerApp::Nui_GotSkeletonAlert( )
 	// from ray
 	int skeletonCount = 0;
 	skeletonNo = 0;
-	char *skeletonString0 = 0;
-	char *skeletonString1 = 0;
 	///
 	//From PeePeeSpeed
 	Vector4* vArray[NUI_SKELETON_POSITION_COUNT];
@@ -870,7 +847,8 @@ void CSkeletalViewerApp::Nui_GotSkeletonAlert( )
 			{
 				if (connected) 
 				{
-					socketClient->SendLine(movementDataHandler[ i ].getString());
+					//socketClient->SendLine(movementDataHandler[ i ].getString());
+					connection.sendString(movementDataHandler[ i ].getString());
 				}
 			}
 			catch (const char* s) 
@@ -906,50 +884,7 @@ void CSkeletalViewerApp::Nui_GotSkeletonAlert( )
         UpdateTrackingComboBoxes();
     }
 
-		///////////// dcRay ///////////////
-	try {
-		
-	if (skeletonCount == 1) {
-		char *string = new char[1024];
-		char *format = "%d,%s,%.5f,%.5f";
-		//sprintf(string, format, skeletonCount, skeletonString0, skeletonZ0, 0.0);
-		sprintf(string, format, skeletonCount, SkeletonString(), skeletonZ0, 0.0);
-
-		if (connected) {
-			//socketClient->SendLine( string );//PPS testing SkeletonString()
-		}
-		delete(skeletonString0);
-		delete(string);
-	}
-	else if (skeletonCount == 2) {
-		char *string = new char[1024];
-		char *format = "%d,%s,%s,%.5f,%.5f";
-		//sprintf(string, format, skeletonCount, skeletonString0, skeletonString1, skeletonZ0, skeletonZ1);
-		//sprintf(string, format, skeletonCount, SkeletonString(), skeletonZ0, 0.0);
-		
-		//if (connected) {
-			//socketClient->SendLine(string);
-			//code is reaching here with 2 people and sockets connected.
-		//}
-
-		delete(skeletonString0);
-		delete(skeletonString1);
-		delete(string);
-	}
-	else {
-		//socketClient->SendLine("0");
-	}
-		  } 
-  catch (const char* s) {
-	  OutputDebugString(L"Error");
-  } 
-  catch (std::string s) {
-	  OutputDebugString(L"Error");
-  } 
-  catch (...) {
-	  OutputDebugString(L"Error");
-  }
-  //PeePeeSpeed
+	//PeePeeSpeed
   skeletonCount = 0;
 ///end dcRay and PPS
     Nui_DoDoubleBuffer(GetDlgItem(m_hWnd,IDC_SKELETALVIEW), m_SkeletonDC);
@@ -1001,99 +936,6 @@ void CSkeletalViewerApp::Nui_SetTrackedSkeletons(int skel1, int skel2)
     }
 }
 
-/// fromRay
-
-//---------------------------------------------------
-// @Name:		SkeletonString
-// @Author:		dcRay
-// @Inputs:		NULL
-// @Outputs:	char *[]
-// 
-// @Desc:		Transforms and then returns the point data from the 'm_Points' array
-//				Transformation allows for m_Points data to be displayed on Hemohiotanga Flash app
-//---------------------------------------------------
-char * CSkeletalViewerApp::SkeletonString()
-{
-		char *string = new char[1024];
-		char *format = "%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d";
-		sprintf(string, format, transformX(m_Points[0].x), transformY(m_Points[0].y),//sprintf is writing to an array
-			transformX(m_Points[1].x), transformY(m_Points[1].y),
-			transformX(m_Points[2].x), transformY(m_Points[2].y),
-			transformX(m_Points[3].x), transformY(m_Points[3].y),
-			transformX(m_Points[4].x), transformY(m_Points[4].y),
-			transformX(m_Points[5].x), transformY(m_Points[5].y),
-			transformX(m_Points[6].x), transformY(m_Points[6].y),
-			transformX(m_Points[7].x), transformY(m_Points[7].y),
-			transformX(m_Points[8].x), transformY(m_Points[8].y),
-			transformX(m_Points[9].x), transformY(m_Points[9].y),
-			transformX(m_Points[10].x), transformY(m_Points[10].y),
-			transformX(m_Points[11].x), transformY(m_Points[11].y),
-			transformX(m_Points[12].x), transformY(m_Points[12].y),
-			transformX(m_Points[13].x), transformY(m_Points[13].y),
-			transformX(m_Points[14].x), transformY(m_Points[14].y),
-			transformX(m_Points[15].x), transformY(m_Points[15].y),
-			transformX(m_Points[16].x), transformY(m_Points[16].y),
-			transformX(m_Points[17].x), transformY(m_Points[17].y),
-			transformX(m_Points[18].x), transformY(m_Points[18].y),
-			transformX(m_Points[19].x), transformY(m_Points[19].y)
-			);
-
-		return string;
-}
-////// end dcRay
-//transform functions modified by James Bayliss
-int CSkeletalViewerApp::transformX(int x)
-{
-	screenWidth = getDimension('x');
-
-	int result = x * kScreenScale * kTargetWidth / screenWidth + kScreenTranslateX;
-	
-	// map it to -scaleFactor to scaleFactor
-	// making factor == 0 according to earlier declaration
-
-	float factor = skeletonFactor0;
-
-	/* This is commented out as it is the same as the above code.
-	if (skeletonNo == 2) {
-		factor = skeletonFactor1;
-	}*/
-
-	//due to factor being 0, multiplying anything by 0 will result in 0
-	int translate = result - kTargetWidth / 2. * kScreenScale * factor;
-	
-	//returns zero as translate is 0 due to factor declarations.
-	return result + translate;
-}
-
-int CSkeletalViewerApp::transformY(int y)
-{
-	screenHeight = getDimension('y');
-	int result = y * kScreenScale * kTargetHeight / screenHeight + kScreenTranslateY;
-
-	return result;
-}
-
-//Author : James Bayliss
-//Parameters: char determines whether to return width or depth)
-//Return: returns the dimension in pixels
-int CSkeletalViewerApp::getDimension(char axis)
-{
-	int dimension;
-	RECT desktop;
-	const HWND hDesktop = GetDesktopWindow();
-
-	GetWindowRect(hDesktop, &desktop);
-
-	if( axis == 'x' )
-		dimension = desktop.right;
-	else
-		dimension = desktop.bottom;
-
-
-	return dimension;
-}
-/// end James Bayliss
-
 //From PeePeeSpeed
 
 //---------------------------------------------------
@@ -1140,7 +982,8 @@ void CSkeletalViewerApp::formatVectorsString( Vector4 * vArray[NUI_SKELETON_POSI
 
 	try {
 		if (connected) {
-			socketClient->SendLine(str);
+			connection.sendString(str);
+			//socketClient->SendLine(str);
 			//socketClient->SendLine( "1,0,0,0,0,0,0,198,466,40,448,-68,527,85,531,91,571,0,0,59,634,-76,640,21,523,0,0,0,0,132,462,149,427,0,0,0,0,268,559,256,539" );
 		}
 	} catch (const char* s) {
@@ -1155,46 +998,3 @@ void CSkeletalViewerApp::formatVectorsString( Vector4 * vArray[NUI_SKELETON_POSI
 		
 		str = "";
 }
-
-//---------------------------------------------------
-// @Name:		attemptConnection
-// @Author:		Lane (PeePeeSpeed)
-// @Inputs:		NULL
-// @Outputs:	NULL
-//
-// @Desc:		Attempts a connection to the local or remote server. Sets 'connected' to 1 if it is successful.
-//				Otherwise, it catches and displays the appropriate error, then deletes the 'socketClient' pointer.
-//---------------------------------------------------
-void CSkeletalViewerApp::attemptConnection()
-{
-	try 
-	{
-		//socketClient = new SocketClient("192.168.21.58", 9000);
-		socketClient = new SocketClient("127.0.0.1", 9000);
-		//MessageBox(NULL, L"Socket connected", L"Sockets", MB_OK);
-
-		connected = 1;
-	} 
-  
-	catch (const char* s) 
-	{
-		OutputDebugString(L"Error");
-		//MessageBox(NULL, L"Error1", L"Error1", MB_OK);
-		delete( socketClient );
-	} 
-  
-	catch (std::string s) 
-	{
-	  OutputDebugString(L"Error"); //contains 'Unknown Error'
-	  //MessageBox(NULL, L"Error2", L"Error2", MB_OK);
-	  delete( socketClient );
-	} 
-
-	catch (...) 
-	{
-	  OutputDebugString(L"Error");
-	  //MessageBox(NULL, L"Error3", L"Error3", MB_OK);
-	  delete( socketClient );
-	}
-}
-//end PPS

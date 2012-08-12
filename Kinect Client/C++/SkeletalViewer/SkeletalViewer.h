@@ -43,18 +43,10 @@ public:
     void                    Nui_SetApplicationTracking(bool applicationTracks);
     void                    Nui_SetTrackedSkeletons(int skel1, int skel2);
 
-	// from ray
-	char *					SkeletonString();
-	int						transformX(int x);
-	int						transformY(int y);
-	//
 	// From PeePeeSpeed
 	void					formatVectorsString( Vector4 * vArray[], int count );//this will need to be put into the MData Class
 	void					attemptConnection();//attempts connection here.
 	// end PPS
-
-	//Screen Dimension function added by James Bayiss
-	int						getDimension(char axis);
 
     RGBQUAD                 Nui_ShortToQuad_Depth( USHORT s );
 

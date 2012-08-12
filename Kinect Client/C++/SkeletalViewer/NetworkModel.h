@@ -13,12 +13,18 @@
 class NetworkModel
 {
 public:
-	NetworkModel(void);
+	NetworkModel();
 	~NetworkModel(void);
-	bool connect( std::string port, std::string IP );
+	bool connect(std::string IPaddress, int port);
+	bool disconnect();
+	void sendString(std::string);
+
 	void sendMData( MData pendingMdata );
 	bool testConnection();
+
+
+
+//end PPS
 private:
 
 };
-
