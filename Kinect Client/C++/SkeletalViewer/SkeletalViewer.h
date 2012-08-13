@@ -48,6 +48,13 @@ public:
 	void					attemptConnection();//attempts connection here.
 	// end PPS
 
+	// From James Bayliss
+	// write and read to file for when no kinect is available
+	int						lineCount;
+	void					writeToFile(std::string);
+	std::string				readFromFile(int);
+	int						getTotalLine();
+
     RGBQUAD                 Nui_ShortToQuad_Depth( USHORT s );
 
     static LRESULT CALLBACK MessageRouter(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);

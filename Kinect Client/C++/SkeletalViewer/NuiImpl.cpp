@@ -23,6 +23,7 @@
 //from James Bayliss
 #include "wtypes.h"
 #include "NetworkModel.h"
+#include <fstream>
 
 //from PeePeeSpeed
 #include <Windows.h>
@@ -789,6 +790,10 @@ void CSkeletalViewerApp::Nui_GotSkeletonAlert( )
 	Vector4* vArray[NUI_SKELETON_POSITION_COUNT];
 	//End PPS
 
+	// From James
+	std::string str; 
+	//End James
+
 
     if ( SUCCEEDED(m_pNuiSensor->NuiSkeletonGetNextFrame( 0, &SkeletonFrame )) )
     {
@@ -847,7 +852,17 @@ void CSkeletalViewerApp::Nui_GotSkeletonAlert( )
 			{
 				if (connected) 
 				{
-					//socketClient->SendLine(movementDataHandler[ i ].getString());
+					//James Bayliss (Write to the File)
+					writeToFile(movementDataHandler[ i ].getString());
+					
+					//James Bayliss (Read from the file)
+					/*totalLine = getTotalLine();
+					if(lineCount < totalLine)
+					{
+						strcpy(str, readFromFile(lineCount));
+						lineCount++;
+					}*/
+					// connection.sendString(str);
 					connection.sendString(movementDataHandler[ i ].getString());
 				}
 			}
@@ -998,3 +1013,72 @@ void CSkeletalViewerApp::formatVectorsString( Vector4 * vArray[NUI_SKELETON_POSI
 		
 		str = "";
 }
+//---------------------------------------------------
+// @Name:		writeToFile()
+// @Author:		James bayliss
+// @Inputs:		a character string of co-ordinates
+// @Outputs:	nothing
+// 
+// @Desc:		writes the series of co-ordinates to a file for when a kinect is in-accessable
+//---------------------------------------------------
+void CSkeletalViewerApp::writeToFile(std::string str)
+{
+	ofstream dataFile;
+	dataFile.open("KinectData.txt", ios_base::out | ios_base::app);
+	dataFile << str <<endl;
+	dataFile.close();
+}
+
+//---------------------------------------------------
+// @Name:		readFromFile()
+// @Author:		James Bayliss
+// @Inputs:		integer depicting how far into the file to read.
+// @Outputs:	a character string
+// 
+// @Desc:		reads from the file a series of co-ordinates representing Kinect data for when a 
+//				kinect is in-accessable
+//---------------------------------------------------
+std::string CSkeletalViewerApp::readFromFile(int lineCount)
+{	
+	char *string = new char[1024];
+	int getLineCount = 0;
+
+	ifstream dataFile;
+	dataFile.open("KinectData.txt");
+	while(!dataFile.eof())
+	{
+			dataFile.getline(string, 1024);
+			if(lineCount == getLineCount)
+			{	
+				dataFile.close();
+				return string;
+			}
+			getLineCount++;
+	}
+	dataFile.close();
+	return string;
+}
+
+//---------------------------------------------------
+// @Name:		getTotalLine
+// @Author:		James Bayliss
+// @Inputs:		Null
+// @Outputs:	Returns the total amount of lines in a file
+// 
+// @Desc:		Reads the file of kinect Data and returns the amount of lines in the file
+//---------------------------------------------------
+int CSkeletalViewerApp::getTotalLine()
+{
+	ifstream dataFile;
+	int total = 0;
+	char* temp = new char[1204];
+	dataFile.open("KinectData.txt");
+	while(!dataFile.eof())
+	{
+		dataFile.getline(temp, 1024);
+		total++;
+	}
+	dataFile.close();
+	return total;
+}
+// end James Bayliss
