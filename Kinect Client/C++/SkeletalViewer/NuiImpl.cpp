@@ -456,7 +456,7 @@ DWORD WINAPI CSkeletalViewerApp::Nui_ProcessThread()
         {
 				try {
 					if (connected) {
-						//socketClient->SendLine("0,0");//This may need to be removed? Pass to printVectors instead.
+						//socketClient->SendLine("0,0");//This may need to be removed?
 					}
 				} catch (const char* s) {
 					  OutputDebugString(L"Error");
@@ -582,7 +582,7 @@ void CSkeletalViewerApp::Nui_BlankSkeletonScreen (HWND hWnd, bool getDC )
     }
 }
 
-void CSkeletalViewerApp::Nui_DrawSkeletonSegment( NUI_SKELETON_DATA * pSkel, int numJoints, ... )// may need to collect segments instead of point info - PPS
+void CSkeletalViewerApp::Nui_DrawSkeletonSegment( NUI_SKELETON_DATA * pSkel, int numJoints, ... )
 {
     va_list vl;
     va_start(vl,numJoints);
@@ -786,9 +786,6 @@ void CSkeletalViewerApp::Nui_GotSkeletonAlert( )
 	int skeletonCount = 0;
 	skeletonNo = 0;
 	///
-	//From PeePeeSpeed
-	Vector4* vArray[NUI_SKELETON_POSITION_COUNT];
-	//End PPS
 
 	// From James
 	std::string str; 
@@ -804,7 +801,7 @@ void CSkeletalViewerApp::Nui_GotSkeletonAlert( )
             {
                 bFoundSkeleton = true;
 				//PeePeeSpeed
-				skeletonCount++;//able to recognise 2 people, tested and confirmed.
+				skeletonCount++;
 				//End PPS
             }
         }
@@ -847,7 +844,8 @@ void CSkeletalViewerApp::Nui_GotSkeletonAlert( )
 			
 			// From PeePeeSpeed
 			//MData Obj
-			movementDataHandler[ i ].setMovementData( SkeletonFrame.SkeletonData[ i ], i );
+			movementDataHandler[ i ].setMovementData( &SkeletonFrame.SkeletonData[ i ], i );
+			//end PPS
 			try 
 			{
 				if (connected) 
@@ -878,20 +876,11 @@ void CSkeletalViewerApp::Nui_GotSkeletonAlert( )
 			{
 				OutputDebugString(L"Error");
 			}
-			
-			//This can go.
-			for( int j = 0; j < NUI_SKELETON_POSITION_COUNT; j++ )
-			{
-				vArray[ j ] = &SkeletonFrame.SkeletonData[ i ].SkeletonPositions[ j ];
-			}		
-			//formatVectorsString( vArray, i );
-
         }
         else if ( m_bAppTracking && SkeletonFrame.SkeletonData[i].eTrackingState == NUI_SKELETON_POSITION_ONLY )
         {
             Nui_DrawSkeletonId( &SkeletonFrame.SkeletonData[i], GetDlgItem( m_hWnd, IDC_SKELETALVIEW ), i );
-        }
-		//end PPS
+		}
     }
 
     if ( bSkeletonIdsChanged )
@@ -909,7 +898,7 @@ void CSkeletalViewerApp::Nui_GotSkeletonAlert( )
 // Nui_ShortToQuad_Depth
 //
 // Get the player colored depth value
-//-------------------------------------------------------------------//PPS this may not be necessary
+//-------------------------------------------------------------------
 RGBQUAD CSkeletalViewerApp::Nui_ShortToQuad_Depth( USHORT s )
 {
     USHORT RealDepth = NuiDepthPixelToDepth(s);
@@ -949,69 +938,6 @@ void CSkeletalViewerApp::Nui_SetTrackedSkeletons(int skel1, int skel2)
     {
         MessageBoxResource(IDS_ERROR_SETTRACKED, MB_OK | MB_ICONHAND);
     }
-}
-
-//From PeePeeSpeed
-
-//---------------------------------------------------
-// @Name:		formatVectorsString
-// @Author:		Lane (PeePeeSpeed)
-// @Inputs:		Vector4 *[], int
-// @Outputs:	NULL
-// 
-// @Desc:		Takes the raw point data from the Vector4 *[] and extracts each point. 
-//				The individual point data is then stored into a comma delimited string.
-//				The string is sent to the server once all the points have been stored.
-//---------------------------------------------------
-void CSkeletalViewerApp::formatVectorsString( Vector4 * vArray[NUI_SKELETON_POSITION_COUNT], int count )
-{
-	char cVal[ 1024 ];
-	
-	char * countVal = new char;
-	itoa( count, countVal, 10 );
-
-	std::string str;
-	
-	str.append( itoa( count, cVal, 10 ) );
-	//str.append( "1" );
-	//MessageBox(NULL, L"1 person", L"TEST INSIDE formatVectorString", MB_OK);
-	for( int i = 0; i < NUI_SKELETON_POSITION_COUNT; i++ )
-	{
-		//X
-		sprintf( cVal, ",%f", vArray[ i ]->x );
-		str.append( cVal );
-		//Y
-		sprintf( cVal, ",%f", vArray[ i ]->y );
-		str.append( cVal );
-		//Z
-		sprintf( cVal, ",%f", vArray[ i ]->z );
-		str.append( cVal );
-		//W
-		sprintf( cVal, ",%f", vArray[ i ]->w );
-		str.append( cVal );
-	}
-
-	//const char * c;
-	//c = str.c_str();
-	//MessageBoxA(NULL, c, "TEST INSIDE GotSkeletonAlert", MB_OK);
-
-	try {
-		if (connected) {
-			connection.sendString(str);
-			//socketClient->SendLine(str);
-			//socketClient->SendLine( "1,0,0,0,0,0,0,198,466,40,448,-68,527,85,531,91,571,0,0,59,634,-76,640,21,523,0,0,0,0,132,462,149,427,0,0,0,0,268,559,256,539" );
-		}
-	} catch (const char* s) {
-			OutputDebugString(L"Error");
-		} 
-		catch (std::string s) {
-			OutputDebugString(L"Error");
-		} 
-		catch (...) {
-			OutputDebugString(L"Error");
-		}
-		
-		str = "";
 }
 //---------------------------------------------------
 // @Name:		writeToFile()

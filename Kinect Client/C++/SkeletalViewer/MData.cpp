@@ -1,4 +1,4 @@
-// MData.cpp : Defines the entry point for the application.
+// MData.cpp
 //
 
 #include "stdafx.h"
@@ -9,15 +9,11 @@
 #include <string>
 #include <iostream>
 #include "Socket.h"
-
-	NUI_SKELETON_DATA * skeletonData;
-	std::string transformedData;
-	int i;
-	NUI_SKELETON_BONE_ORIENTATION bOrientations[ NUI_SKELETON_POSITION_COUNT ];
+#include <sstream>
 
 	NUI_SKELETON_DATA MData::getMovementData()
 	{
-		return skeletonData;
+		return *skeletonData;
 	}
 
 	int MData::getI()
@@ -25,7 +21,7 @@
 		return i;
 	}
 
-	void MData::setMovementData( NUI_SKELETON_DATA &sData, int index )
+	void MData::setMovementData( NUI_SKELETON_DATA * sData, int index )
 	{
 		skeletonData = sData;
 		i = index;
@@ -35,157 +31,98 @@
 
 	void MData::transformMovementData()
 	{ 
-		//transformedData has the model: startJoint, endJoint, absoluteRotation.rotationQuaternion, absoluteRotation.rotationMatrix, 
-		//													hierarchicalRotation.rotationQuaternion, hierarchicalRotation.rotationMatrix.
-		transformedData = "";
+		//transformedData has the model: { [ skeletonIndex, startJoint[ j ], endJoint[ j ], absoluteRotation.rotationQuaternion[ j ], 
+		//									absoluteRotation.rotationMatrix[ j ], hierarchicalRotation.rotationQuaternion[ j ], 
+		//										hierarchicalRotation.rotationMatrix[ j ] ] [ NUI_SKELETON_POSITION_INDEX, 
+		//											skeletonData.SkeletonPositions[ j ], skeletalData.eSkeletonTrackingState[ j ] ] 
+		//												[ skeletonData.Position ] [ skeletonData.dwTrackingID ] 
+		//													[ skeletonData.eTrackingState ] }
+		transformedData = ""; 
 
-		char * cTemp = new char[ 1024 ];
+		std::stringstream ss;
 
 		//take skeletonData.
 		//Calculate Bone Orientations
-		NuiSkeletonCalculateBoneOrientations( &skeletonData, bOrientations );
+		NuiSkeletonCalculateBoneOrientations( skeletonData, bOrientations );
 
-		transformedData.append( itoa( i, cTemp, 10 ) );
+		ss << i;//i is Skeleton Index
 
 		for( int j = 0; j < NUI_SKELETON_POSITION_COUNT; j++ )
 		{
-			sprintf( cTemp, ",%i", bOrientations[ j ].startJoint );
-			transformedData.append( cTemp );
+			ss << "," << bOrientations[ j ].startJoint;
+			ss << "," << bOrientations[ j ].endJoint;
+
+			ss << "," << bOrientations[ j ].absoluteRotation.rotationQuaternion.x;
+			ss << "," << bOrientations[ j ].absoluteRotation.rotationQuaternion.y;
+			ss << "," << bOrientations[ j ].absoluteRotation.rotationQuaternion.z;
+			ss << "," << bOrientations[ j ].absoluteRotation.rotationQuaternion.w;
 			
-			sprintf( cTemp, ",%i", bOrientations[ j ].endJoint );
-			transformedData.append( cTemp );
+			ss << "," << bOrientations[ j ].absoluteRotation.rotationMatrix.M11;
+			ss << "," << bOrientations[ j ].absoluteRotation.rotationMatrix.M12;
+			ss << "," << bOrientations[ j ].absoluteRotation.rotationMatrix.M13;
+			ss << "," << bOrientations[ j ].absoluteRotation.rotationMatrix.M14;
+			ss << "," << bOrientations[ j ].absoluteRotation.rotationMatrix.M21;
+			ss << "," << bOrientations[ j ].absoluteRotation.rotationMatrix.M22;
+			ss << "," << bOrientations[ j ].absoluteRotation.rotationMatrix.M23;
+			ss << "," << bOrientations[ j ].absoluteRotation.rotationMatrix.M24;
+			ss << "," << bOrientations[ j ].absoluteRotation.rotationMatrix.M31;
+			ss << "," << bOrientations[ j ].absoluteRotation.rotationMatrix.M32;
+			ss << "," << bOrientations[ j ].absoluteRotation.rotationMatrix.M33;
+			ss << "," << bOrientations[ j ].absoluteRotation.rotationMatrix.M34;
+			ss << "," << bOrientations[ j ].absoluteRotation.rotationMatrix.M41;
+			ss << "," << bOrientations[ j ].absoluteRotation.rotationMatrix.M42;
+			ss << "," << bOrientations[ j ].absoluteRotation.rotationMatrix.M43;
+			ss << "," << bOrientations[ j ].absoluteRotation.rotationMatrix.M44;
 
-			sprintf( cTemp, ",%f", bOrientations[ j ].absoluteRotation.rotationQuaternion.x );
-			transformedData.append( cTemp );
+			ss << "," << bOrientations[ j ].hierarchicalRotation.rotationQuaternion.x;
+			ss << "," << bOrientations[ j ].hierarchicalRotation.rotationQuaternion.y;
+			ss << "," << bOrientations[ j ].hierarchicalRotation.rotationQuaternion.z;
+			ss << "," << bOrientations[ j ].hierarchicalRotation.rotationQuaternion.w;
 
-			sprintf( cTemp, ",%f", bOrientations[ j ].absoluteRotation.rotationQuaternion.y );
-			transformedData.append( cTemp );
-
-			sprintf( cTemp, ",%f", bOrientations[ j ].absoluteRotation.rotationQuaternion.z );
-			transformedData.append( cTemp );
-
-			sprintf( cTemp, ",%f", bOrientations[ j ].absoluteRotation.rotationQuaternion.w );
-			transformedData.append( cTemp );
-
-			sprintf( cTemp, ",%f", bOrientations[ j ].absoluteRotation.rotationMatrix.M11 );
-			transformedData.append( cTemp );
-
-			sprintf( cTemp, ",%f", bOrientations[ j ].absoluteRotation.rotationMatrix.M12 );
-			transformedData.append( cTemp );
-
-			sprintf( cTemp, ",%f", bOrientations[ j ].absoluteRotation.rotationMatrix.M13 );
-			transformedData.append( cTemp );
-
-			sprintf( cTemp, ",%f", bOrientations[ j ].absoluteRotation.rotationMatrix.M14 );
-			transformedData.append( cTemp );
-
-			sprintf( cTemp, ",%f", bOrientations[ j ].absoluteRotation.rotationMatrix.M21 );
-			transformedData.append( cTemp );
-
-			sprintf( cTemp, ",%f", bOrientations[ j ].absoluteRotation.rotationMatrix.M22 );
-			transformedData.append( cTemp );
-
-			sprintf( cTemp, ",%f", bOrientations[ j ].absoluteRotation.rotationMatrix.M23 );
-			transformedData.append( cTemp );
-
-			sprintf( cTemp, ",%f", bOrientations[ j ].absoluteRotation.rotationMatrix.M24 );
-			transformedData.append( cTemp );
-
-			sprintf( cTemp, ",%f", bOrientations[ j ].absoluteRotation.rotationMatrix.M31 );
-			transformedData.append( cTemp );
-
-			sprintf( cTemp, ",%f", bOrientations[ j ].absoluteRotation.rotationMatrix.M32 );
-			transformedData.append( cTemp );
-
-			sprintf( cTemp, ",%f", bOrientations[ j ].absoluteRotation.rotationMatrix.M33 );
-			transformedData.append( cTemp );
-
-			sprintf( cTemp, ",%f", bOrientations[ j ].absoluteRotation.rotationMatrix.M34 );
-			transformedData.append( cTemp );
-
-			sprintf( cTemp, ",%f", bOrientations[ j ].absoluteRotation.rotationMatrix.M41 );
-			transformedData.append( cTemp );
-
-			sprintf( cTemp, ",%f", bOrientations[ j ].absoluteRotation.rotationMatrix.M42 );
-			transformedData.append( cTemp );
-
-			sprintf( cTemp, ",%f", bOrientations[ j ].absoluteRotation.rotationMatrix.M43 );
-			transformedData.append( cTemp );
-
-			sprintf( cTemp, ",%f", bOrientations[ j ].absoluteRotation.rotationMatrix.M44 );
-			transformedData.append( cTemp );
-
-			//----------------------
-
-			sprintf( cTemp, ",%f", bOrientations[ j ].hierarchicalRotation.rotationQuaternion.x );
-			transformedData.append( cTemp );
-
-			sprintf( cTemp, ",%f", bOrientations[ j ].hierarchicalRotation.rotationQuaternion.y );
-			transformedData.append( cTemp );
-
-			sprintf( cTemp, ",%f", bOrientations[ j ].hierarchicalRotation.rotationQuaternion.z );
-			transformedData.append( cTemp );
-
-			sprintf( cTemp, ",%f", bOrientations[ j ].hierarchicalRotation.rotationQuaternion.w );
-			transformedData.append( cTemp );
-
-			sprintf( cTemp, ",%f", bOrientations[ j ].hierarchicalRotation.rotationMatrix.M11 );
-			transformedData.append( cTemp );
-
-			sprintf( cTemp, ",%f", bOrientations[ j ].hierarchicalRotation.rotationMatrix.M12 );
-			transformedData.append( cTemp );
-
-			sprintf( cTemp, ",%f", bOrientations[ j ].hierarchicalRotation.rotationMatrix.M13 );
-			transformedData.append( cTemp );
-
-			sprintf( cTemp, ",%f", bOrientations[ j ].hierarchicalRotation.rotationMatrix.M14 );
-			transformedData.append( cTemp );
-
-			sprintf( cTemp, ",%f", bOrientations[ j ].hierarchicalRotation.rotationMatrix.M21 );
-			transformedData.append( cTemp );
-
-			sprintf( cTemp, ",%f", bOrientations[ j ].hierarchicalRotation.rotationMatrix.M22 );
-			transformedData.append( cTemp );
-
-			sprintf( cTemp, ",%f", bOrientations[ j ].hierarchicalRotation.rotationMatrix.M23 );
-			transformedData.append( cTemp );
-
-			sprintf( cTemp, ",%f", bOrientations[ j ].hierarchicalRotation.rotationMatrix.M24 );
-			transformedData.append( cTemp );
-
-			sprintf( cTemp, ",%f", bOrientations[ j ].hierarchicalRotation.rotationMatrix.M31 );
-			transformedData.append( cTemp );
-
-			sprintf( cTemp, ",%f", bOrientations[ j ].hierarchicalRotation.rotationMatrix.M32 );
-			transformedData.append( cTemp );
-
-			sprintf( cTemp, ",%f", bOrientations[ j ].hierarchicalRotation.rotationMatrix.M33 );
-			transformedData.append( cTemp );
-
-			sprintf( cTemp, ",%f", bOrientations[ j ].hierarchicalRotation.rotationMatrix.M34 );
-			transformedData.append( cTemp );
-
-			sprintf( cTemp, ",%f", bOrientations[ j ].hierarchicalRotation.rotationMatrix.M41 );
-			transformedData.append( cTemp );
-
-			sprintf( cTemp, ",%f", bOrientations[ j ].hierarchicalRotation.rotationMatrix.M42 );
-			transformedData.append( cTemp );
-
-			sprintf( cTemp, ",%f", bOrientations[ j ].hierarchicalRotation.rotationMatrix.M43 );
-			transformedData.append( cTemp );
-
-			sprintf( cTemp, ",%f", bOrientations[ j ].hierarchicalRotation.rotationMatrix.M44 );
-			transformedData.append( cTemp );
+			ss << "," << bOrientations[ j ].hierarchicalRotation.rotationMatrix.M11;
+			ss << "," << bOrientations[ j ].hierarchicalRotation.rotationMatrix.M12;
+			ss << "," << bOrientations[ j ].hierarchicalRotation.rotationMatrix.M13;
+			ss << "," << bOrientations[ j ].hierarchicalRotation.rotationMatrix.M14;
+			ss << "," << bOrientations[ j ].hierarchicalRotation.rotationMatrix.M21;
+			ss << "," << bOrientations[ j ].hierarchicalRotation.rotationMatrix.M22;
+			ss << "," << bOrientations[ j ].hierarchicalRotation.rotationMatrix.M23;
+			ss << "," << bOrientations[ j ].hierarchicalRotation.rotationMatrix.M24;
+			ss << "," << bOrientations[ j ].hierarchicalRotation.rotationMatrix.M31;
+			ss << "," << bOrientations[ j ].hierarchicalRotation.rotationMatrix.M32;
+			ss << "," << bOrientations[ j ].hierarchicalRotation.rotationMatrix.M33;
+			ss << "," << bOrientations[ j ].hierarchicalRotation.rotationMatrix.M34;
+			ss << "," << bOrientations[ j ].hierarchicalRotation.rotationMatrix.M41;
+			ss << "," << bOrientations[ j ].hierarchicalRotation.rotationMatrix.M42;
+			ss << "," << bOrientations[ j ].hierarchicalRotation.rotationMatrix.M43;
+			ss << "," << bOrientations[ j ].hierarchicalRotation.rotationMatrix.M44;
 		}
 
-		const char * c;
-		c = transformedData.c_str();
+		for( int k = 0; k < NUI_SKELETON_POSITION_COUNT; k++ )
+		{
+			ss << "," << k;
+
+			ss << "," << skeletonData->SkeletonPositions[ k ].x;
+			ss << "," << skeletonData->SkeletonPositions[ k ].y;
+			ss << "," << skeletonData->SkeletonPositions[ k ].z;
+
+			ss << "," << skeletonData->eSkeletonPositionTrackingState[ k ];
+		}
+
+		ss << "," << skeletonData->Position.x;
+		ss << "," << skeletonData->Position.y;
+		ss << "," << skeletonData->Position.z;
+
+		ss << "," << skeletonData->dwTrackingID;
+
+		ss << "," << skeletonData->eTrackingState;
+
+		transformedData = ss.str();
+		
+		//const char * c;
+		//c = transformedData.c_str();
 		//MessageBoxA(NULL, c, "TEST INSIDE transformMovementData", MB_OK);
-		//delete( c );//throwing assertion error, keep commented until fix is known
 
 		//return string or send
-
-		delete( cTemp );
 	}
 
 	std::string MData::getString()
