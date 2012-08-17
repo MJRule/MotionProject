@@ -11,8 +11,9 @@
 #include "resource.h"
 #include "NuiApi.h"
 #include "DrawDevice.h"
-//PeePeeSpeed - adding MData
+//PeePeeSpeed - adding MData and NetworkModel
 #include "MData.h"
+#include "NetworkModel.h"
 //End PPS
 
 #define SZ_APPDLG_WINDOW_CLASS          _T("SkeletalViewerAppDlgWndClass")
@@ -23,6 +24,10 @@
 class CSkeletalViewerApp
 {
 public:
+
+	//PPS
+	NetworkModel theNetwork; // change this to correct name later
+
     CSkeletalViewerApp();
     ~CSkeletalViewerApp();
     HRESULT                 Nui_Init( );
@@ -42,11 +47,6 @@ public:
     void                    Nui_EnableSeatedTracking(bool seated);
     void                    Nui_SetApplicationTracking(bool applicationTracks);
     void                    Nui_SetTrackedSkeletons(int skel1, int skel2);
-
-	// From PeePeeSpeed
-	void					formatVectorsString( Vector4 * vArray[], int count );//this will need to be put into the MData Class
-	void					attemptConnection();//attempts connection here.
-	// end PPS
 
 	// From James Bayliss
 	// write and read to file for when no kinect is available
@@ -84,7 +84,6 @@ private:
     BSTR                    m_instanceId;
 
     // Draw devices
-    //DrawDevice *            m_pDrawDepth; //removed all instances of m_pDrawDepth. Removed Window drawings of Depth
     DrawDevice *            m_pDrawColor;
     ID2D1Factory *          m_pD2DFactory;
 
