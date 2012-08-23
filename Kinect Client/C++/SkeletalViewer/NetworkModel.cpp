@@ -25,6 +25,13 @@ bool NetworkModel::connect(std::string IPaddress, int port)
 	try 
 	{
 		//socketClient = new SocketClient("192.168.21.58", 9000);
+
+		/*EventLogResult = SendDlgItemMessage( m_hWnd, IDC_EVENTLOG, WM_GETTEXT, 9000, (LPARAM)eventLogTemp );
+		_tcscat_s( eventLogTemp, 1024, L"\r\nIP Address: " );
+		_tcscat_s( eventLogTemp, 1024, IPOutput );
+		_tcscat_s( eventLogTemp, 1024, L"\r\nPort Address: " );
+		_tcscat_s( eventLogTemp, 1024, PortOutput );
+		SendDlgItemMessage( m_hWnd, IDC_EVENTLOG, WM_SETTEXT, 0, (LPARAM)eventLogTemp );*/
 		socketClient = new SocketClient(IPaddress, port);
 		MessageBox(NULL, L"Socket connected", L"Sockets", MB_OK);
 

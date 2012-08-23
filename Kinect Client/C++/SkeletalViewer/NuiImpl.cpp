@@ -408,10 +408,6 @@ DWORD WINAPI CSkeletalViewerApp::Nui_ProcessThread()
     int    nEventIdx;
     DWORD  t;
 
-	//James Bayliss
-	connected = connection.connect("127.0.0.1", 9000);
-	//connect = connection.disconnect();
-
     m_LastDepthFPStime = timeGetTime( );
 
     //blank the skeleton display on startup

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ <id>urn:iweb:2B0C76BA-24E1-4E29-96C7-B8186C07A72F</id>
+ <title>Page list Atom feed</title>
+ <updated>2011-08-11T15:49:26+08:00</updated>
+ <link rel="self" href="feed.xml"/>
+ <generator>iWeb</generator>
+ <author>
+  <name>iWeb</name>
+ </author>
+ <entry>
+  <id>urn:iweb:542A30A9-9816-4AC0-A5B4-9D22AB7A5535</id>
+  <title>home</title>
+  <title xmlns="urn:iweb:">home</title>
+  <in-navbar xmlns="urn:iweb:">542A30A9-9816-4AC0-A5B4-9D22AB7A5535</in-navbar>
+  <link rel="alternate" href="home.html"/>
+  <updated>2011-08-11T15:49:26.001+08:00</updated>
+  <content>home</content>
+ </entry>
+ <entry>
+  <id>urn:iweb:56CC1782-F5A5-45A8-BA90-E63B2AE84380</id>
+  <title>avatar</title>
+  <title xmlns="urn:iweb:">avatar</title>
+  <in-navbar xmlns="urn:iweb:">56CC1782-F5A5-45A8-BA90-E63B2AE84380</in-navbar>
+  <link rel="alternate" href="avatar.html"/>
+  <updated>2011-08-11T15:49:26.002+08:00</updated>
+  <content>avatar</content>
+ </entry>
+ <entry>
+  <id>urn:iweb:BC32E9B9-5341-4868-BBA4-CAD75F74D30C</id>
+  <title>event</title>
+  <title xmlns="urn:iweb:">event</title>
+  <in-navbar xmlns="urn:iweb:">BC32E9B9-5341-4868-BBA4-CAD75F74D30C</in-navbar>
+  <link rel="alternate" href="event.html"/>
+  <updated>2011-08-11T15:49:26.003+08:00</updated>
+  <content>event</content>
+ </entry>
+ <entry>
+  <id>urn:iweb:A0EBADFD-2CC5-4BAC-BF28-F0DE7CBBAFE3</id>
+  <title>contact</title>
+  <title xmlns="urn:iweb:">contact</title>
+  <in-navbar xmlns="urn:iweb:">A0EBADFD-2CC5-4BAC-BF28-F0DE7CBBAFE3</in-navbar>
+  <link rel="alternate" href="contact.html"/>
+  <updated>2011-08-11T15:49:26.004+08:00</updated>
+  <content>contact</content>
+ </entry>
+</feed>

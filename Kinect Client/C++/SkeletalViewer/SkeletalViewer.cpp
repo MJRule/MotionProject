@@ -14,6 +14,8 @@
 #include <strsafe.h>
 #include "SkeletalViewer.h"
 #include "resource.h"
+#include "NetworkModel.h"
+#include "atlstr.h"
 
 // Global Variables:
 CSkeletalViewerApp  g_skeletalViewerApp;  // Application class
@@ -77,6 +79,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCm
 
     // Show window
     ShowWindow(hWndApp,nCmdShow); 
+
 
     // Main message loop:
     while( GetMessage( &msg, NULL, 0, 0 ) ) 
@@ -147,6 +150,11 @@ void CSkeletalViewerApp::UpdateComboBox()
     }
 
     EnableWindow(GetDlgItem(m_hWnd, IDC_APPTRACKING), numDevices > 0);
+
+	wchar_t eventLogTemp[1024];
+	SendDlgItemMessage( m_hWnd, IDC_EVENTLOG, WM_GETTEXT, 9000, (LPARAM)eventLogTemp );
+	_tcscat_s( eventLogTemp, 1024, L"Welcome to the kinect client" );
+	SendDlgItemMessage( m_hWnd, IDC_EVENTLOG, WM_SETTEXT, 0, (LPARAM)eventLogTemp );
 
     long selectedIndex = 0;
     for ( int i = 0; i < numDevices; i++ )
@@ -361,6 +369,55 @@ LRESULT CALLBACK CSkeletalViewerApp::WndProc(HWND hWnd, UINT message, WPARAM wPa
                         }
                     }
                     break;
+					//Buttons added by the motion project
+					case IDC_CONNECTSERVER:
+					{
+						//Results for SendDlgItemMessage (Not sure if used)
+						LRESULT IPResult;
+						LRESULT PortResult;
+						LRESULT EventLogResult;
+
+						//Temporary storage
+						wchar_t PortOutput[32];
+						wchar_t IPOutput[32];
+						wchar_t eventLogTemp[1024];
+
+						//Converted results
+						char * newIP = new char[32];
+						char * newPort = new char[32];
+						
+						//These two methods get the text values of both edit controls
+						IPResult = SendDlgItemMessage( m_hWnd, IDC_IPADDRESSFORM, WM_GETTEXT, WM_GETTEXTLENGTH, (LPARAM)IPOutput );
+						PortResult = SendDlgItemMessage( m_hWnd, IDC_PORTADDRESSFORM, WM_GETTEXT, WM_GETTEXTLENGTH, (LPARAM)PortOutput );
+
+						//This section writes an update to the event log
+						EventLogResult = SendDlgItemMessage( m_hWnd, IDC_EVENTLOG, WM_GETTEXT, 9000, (LPARAM)eventLogTemp );
+						_tcscat_s( eventLogTemp, 1024, L"\r\nIP Address: " );
+						_tcscat_s( eventLogTemp, 1024, IPOutput );
+						_tcscat_s( eventLogTemp, 1024, L"\r\nPort Address: " );
+						_tcscat_s( eventLogTemp, 1024, PortOutput );
+						SendDlgItemMessage( m_hWnd, IDC_EVENTLOG, WM_SETTEXT, 0, (LPARAM)eventLogTemp );
+
+						//Converting string types
+						wcstombs( newIP, IPOutput, 32 );
+						wcstombs( newPort, PortOutput, 32 );
+
+						//This is where the network attemps connection
+						theNetwork.connect( newIP, atoi(newPort) );
+					}
+					break;
+
+					case IDC_CONNECTKINECT:
+					{
+						wchar_t eventLogTemp[1024];
+						SendDlgItemMessage( m_hWnd, IDC_EVENTLOG, WM_GETTEXT, 9000, (LPARAM)eventLogTemp );
+						_tcscat_s( eventLogTemp, 1024, L"\r\nAttempting to connect Kinect device" );
+						SendDlgItemMessage( m_hWnd, IDC_EVENTLOG, WM_SETTEXT, 0, (LPARAM)eventLogTemp );
+						
+						Nui_Init();
+
+					}
+					break;
                 }
             }
         }
