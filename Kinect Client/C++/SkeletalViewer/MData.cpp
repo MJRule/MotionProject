@@ -40,6 +40,7 @@
 		transformedData = ""; 
 
 		std::stringstream ss;
+		ss.precision( 2 );
 
 		//take skeletonData.
 		//Calculate Bone Orientations

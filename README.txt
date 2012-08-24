@@ -5,7 +5,7 @@ This is the client used to pull and send data from the kinect device
 Current version: 0.8
 Feature 1.1: Finished
 Feature 1.2: Finished
-Feature 1.3: Still requires wamp connection
+Feature 1.3: Finished
 Feature 1.4: Finished
 
 Wamp

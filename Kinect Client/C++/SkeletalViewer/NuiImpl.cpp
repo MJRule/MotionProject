@@ -844,6 +844,7 @@ void CSkeletalViewerApp::Nui_GotSkeletonAlert( )
 			//end PPS
 			try 
 			{
+				connected = theNetwork.isConnected();
 				if (connected) 
 				{
 					//James Bayliss (Write to the File)
@@ -857,7 +858,11 @@ void CSkeletalViewerApp::Nui_GotSkeletonAlert( )
 						lineCount++;
 					}*/
 					// connection.sendString(str);
-					connection.sendString(movementDataHandler[ i ].getString());
+					//MessageBox( NULL, L"About to send", L"", NULL );
+					//connection.sendString(movementDataHandler[ i ].getString());
+					theNetwork.sendString(movementDataHandler[ i ].getString());
+					
+					//theNetwork.sendString("3,0,0,0.1234");
 				}
 			}
 			catch (const char* s) 

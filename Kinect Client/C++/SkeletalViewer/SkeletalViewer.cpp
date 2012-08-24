@@ -378,17 +378,19 @@ LRESULT CALLBACK CSkeletalViewerApp::WndProc(HWND hWnd, UINT message, WPARAM wPa
 						LRESULT EventLogResult;
 
 						//Temporary storage
-						wchar_t PortOutput[32];
-						wchar_t IPOutput[32];
+						wchar_t PortOutput[256];
+						wchar_t IPOutput[256];
 						wchar_t eventLogTemp[1024];
 
 						//Converted results
-						char * newIP = new char[32];
-						char * newPort = new char[32];
+						char * newIP = new char[256];
+						char * newPort = new char[256];
 						
 						//These two methods get the text values of both edit controls
-						IPResult = SendDlgItemMessage( m_hWnd, IDC_IPADDRESSFORM, WM_GETTEXT, WM_GETTEXTLENGTH, (LPARAM)IPOutput );
-						PortResult = SendDlgItemMessage( m_hWnd, IDC_PORTADDRESSFORM, WM_GETTEXT, WM_GETTEXTLENGTH, (LPARAM)PortOutput );
+						//IPResult = SendDlgItemMessage( m_hWnd, IDC_IPADDRESSFORM, WM_GETTEXT, WM_GETTEXTLENGTH, (LPARAM)IPOutput );
+						IPResult = SendDlgItemMessage( m_hWnd, IDC_IPADDRESSFORM, WM_GETTEXT, 256, (LPARAM)IPOutput );
+						//PortResult = SendDlgItemMessage( m_hWnd, IDC_PORTADDRESSFORM, WM_GETTEXT, WM_GETTEXTLENGTH, (LPARAM)PortOutput );
+						PortResult = SendDlgItemMessage( m_hWnd, IDC_PORTADDRESSFORM, WM_GETTEXT, 256, (LPARAM)PortOutput );
 
 						//This section writes an update to the event log
 						EventLogResult = SendDlgItemMessage( m_hWnd, IDC_EVENTLOG, WM_GETTEXT, 9000, (LPARAM)eventLogTemp );
@@ -399,8 +401,8 @@ LRESULT CALLBACK CSkeletalViewerApp::WndProc(HWND hWnd, UINT message, WPARAM wPa
 						SendDlgItemMessage( m_hWnd, IDC_EVENTLOG, WM_SETTEXT, 0, (LPARAM)eventLogTemp );
 
 						//Converting string types
-						wcstombs( newIP, IPOutput, 32 );
-						wcstombs( newPort, PortOutput, 32 );
+						wcstombs( newIP, IPOutput, 256 );
+						wcstombs( newPort, PortOutput, 256 );
 
 						//This is where the network attemps connection
 						theNetwork.connect( newIP, atoi(newPort) );
