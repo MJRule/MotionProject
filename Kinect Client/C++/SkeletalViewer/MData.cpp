@@ -130,3 +130,54 @@
 	{
 		return transformedData;
 	}
+
+	float normaliseX( float x )
+	{
+		return (x + 2.2) / 4.4;
+	}
+
+	float normaliseY( float y )
+	{
+		return (y + 1.6) / 3.6;
+	}
+
+	float normaliseZ( float z )
+	{
+		return z/ 4;
+	}
+
+	void MData::transformHeadHands()
+	{
+		//transformedData has the model: { skeletonIndex, head x, head y, head z, L hand x, L hand y, L hand z, 
+		//									 R hand x, R hand y, R hand z, skeletonTrackingID }
+
+		// TODD HACK HERE!
+		// http://msdn.microsoft.com/en-us/library/nuisensor.nui_skeleton_data.aspx
+		// http://msdn.microsoft.com/en-us/library/nuisensor.nui_skeleton_position_index.aspx
+		// http://www.instructables.com/id/Arduino-Basics-Making-Sound/step4/The-Simple-Keyboard/
+		// I'm interesrted in the HEAD , and hands
+			
+		std::stringstream ss;
+
+		ss << i; // i is index.
+
+		ss << "," << skeletonData[i].SkeletonPositions[NUI_SKELETON_POSITION_HEAD].x;
+		ss << "," << skeletonData[i].SkeletonPositions[NUI_SKELETON_POSITION_HEAD].y;
+		ss << "," << skeletonData[i].SkeletonPositions[NUI_SKELETON_POSITION_HEAD].z;
+
+		ss << "," << skeletonData[i].SkeletonPositions[NUI_SKELETON_POSITION_HAND_LEFT].x;
+		ss << "," << skeletonData[i].SkeletonPositions[NUI_SKELETON_POSITION_HAND_LEFT].y;
+		ss << "," << skeletonData[i].SkeletonPositions[NUI_SKELETON_POSITION_HAND_LEFT].z;
+
+		ss << "," << skeletonData[i].SkeletonPositions[NUI_SKELETON_POSITION_HAND_RIGHT].x;
+		ss << "," << skeletonData[i].SkeletonPositions[NUI_SKELETON_POSITION_HAND_RIGHT].y;
+		ss << "," << skeletonData[i].SkeletonPositions[NUI_SKELETON_POSITION_HAND_RIGHT].z;
+
+		ss << "," << skeletonData[0].dwTrackingID;
+
+		transformedData = ss.str();
+
+		//const char * c;
+		//c = transformedData.c_str();
+		//MessageBoxA(NULL, c, "TEST INSIDE transformMovementData", MB_OK);
+	}

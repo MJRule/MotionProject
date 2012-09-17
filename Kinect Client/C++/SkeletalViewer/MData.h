@@ -27,4 +27,9 @@ public:
 	void transformMovementData();
 	int getI();
 	std::string MData::getString();
+	float normaliseX( float x );
+	float normaliseY( float y );
+	float normaliseZ( float z );
+
+	void MData::transformHeadHands();
 };

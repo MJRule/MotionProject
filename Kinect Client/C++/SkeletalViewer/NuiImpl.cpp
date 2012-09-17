@@ -848,7 +848,7 @@ void CSkeletalViewerApp::Nui_GotSkeletonAlert( )
 				if (connected) 
 				{
 					//James Bayliss (Write to the File)
-					writeToFile(movementDataHandler[ i ].getString());
+					//writeToFile(movementDataHandler[ i ].getString());
 					
 					//James Bayliss (Read from the file)
 					/*totalLine = getTotalLine();
@@ -861,7 +861,6 @@ void CSkeletalViewerApp::Nui_GotSkeletonAlert( )
 					//MessageBox( NULL, L"About to send", L"", NULL );
 					//connection.sendString(movementDataHandler[ i ].getString());
 					theNetwork.sendString(movementDataHandler[ i ].getString());
-					
 					//theNetwork.sendString("3,0,0,0.1234");
 				}
 			}
