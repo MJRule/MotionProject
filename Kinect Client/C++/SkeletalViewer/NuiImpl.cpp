@@ -848,7 +848,7 @@ void CSkeletalViewerApp::Nui_GotSkeletonAlert( )
 				if (connected) 
 				{
 					//James Bayliss (Write to the File)
-					//writeToFile(movementDataHandler[ i ].getString());
+					writeToFile(movementDataHandler[ i ].getString());
 					
 					//James Bayliss (Read from the file)
 					/*totalLine = getTotalLine();

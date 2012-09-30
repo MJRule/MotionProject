@@ -44,15 +44,28 @@
 
 		//take skeletonData.
 		//Calculate Bone Orientations
-		NuiSkeletonCalculateBoneOrientations( skeletonData, bOrientations );
+		NuiSkeletonCalculateBoneOrientations( skeletonData, bOrientations );//This transforms the data, it calculates the bone orientations (not the points) from the skeleton.
 
-		ss << i;//i is Skeleton Index
+		ss << i;//i is Skeleton Index // THIS IS FIRST IN THE TRANSFORMEDDATA STRING
+
+		ss << "," << skeletonData->eTrackingState;
+		ss << "," << skeletonData->dwTrackingID;
+		
+		ss << "," << skeletonData->Position.x;
+		ss << "," << skeletonData->Position.y;
+		ss << "," << skeletonData->Position.z;
+
+		for( int k = 0; k < NUI_SKELETON_POSITION_COUNT; k++ )
+		{
+			ss << "," << skeletonData->SkeletonPositions[ k ].x;
+			ss << "," << skeletonData->SkeletonPositions[ k ].y;
+			ss << "," << skeletonData->SkeletonPositions[ k ].z;
+
+			ss << "," << skeletonData->eSkeletonPositionTrackingState[ k ];
+		}
 
 		for( int j = 0; j < NUI_SKELETON_POSITION_COUNT; j++ )
 		{
-			ss << "," << bOrientations[ j ].startJoint;
-			ss << "," << bOrientations[ j ].endJoint;
-
 			ss << "," << bOrientations[ j ].absoluteRotation.rotationQuaternion.x;
 			ss << "," << bOrientations[ j ].absoluteRotation.rotationQuaternion.y;
 			ss << "," << bOrientations[ j ].absoluteRotation.rotationQuaternion.z;
@@ -97,25 +110,6 @@
 			ss << "," << bOrientations[ j ].hierarchicalRotation.rotationMatrix.M43;
 			ss << "," << bOrientations[ j ].hierarchicalRotation.rotationMatrix.M44;
 		}
-
-		for( int k = 0; k < NUI_SKELETON_POSITION_COUNT; k++ )
-		{
-			ss << "," << k;
-
-			ss << "," << skeletonData->SkeletonPositions[ k ].x;
-			ss << "," << skeletonData->SkeletonPositions[ k ].y;
-			ss << "," << skeletonData->SkeletonPositions[ k ].z;
-
-			ss << "," << skeletonData->eSkeletonPositionTrackingState[ k ];
-		}
-
-		ss << "," << skeletonData->Position.x;
-		ss << "," << skeletonData->Position.y;
-		ss << "," << skeletonData->Position.z;
-
-		ss << "," << skeletonData->dwTrackingID;
-
-		ss << "," << skeletonData->eTrackingState;
 
 		transformedData = ss.str();
 		
