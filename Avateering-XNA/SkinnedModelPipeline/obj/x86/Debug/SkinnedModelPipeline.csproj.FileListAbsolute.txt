@@ -1,0 +1,14 @@
+C:\Users\PeePeeSpeed\Desktop\Avateering-XNA\SkinnedModelPipeline\bin\x86\Debug\SkinnedModelPipeline.dll
+C:\Users\PeePeeSpeed\Desktop\Avateering-XNA\SkinnedModelPipeline\bin\x86\Debug\SkinnedModelPipeline.pdb
+C:\Users\PeePeeSpeed\Desktop\Avateering-XNA\SkinnedModelPipeline\bin\x86\Debug\SkinnedModel.dll
+C:\Users\PeePeeSpeed\Desktop\Avateering-XNA\SkinnedModelPipeline\bin\x86\Debug\SkinnedModel.pdb
+C:\Users\PeePeeSpeed\Desktop\Avateering-XNA\SkinnedModelPipeline\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\PeePeeSpeed\Desktop\Avateering-XNA\SkinnedModelPipeline\obj\x86\Debug\SkinnedModelPipeline.dll
+C:\Users\PeePeeSpeed\Desktop\Avateering-XNA\SkinnedModelPipeline\obj\x86\Debug\SkinnedModelPipeline.pdb
+C:\Users\PeePeeSpeed\Desktop\Project Backups\Avateering-XNA v2.2 07-09-2012\SkinnedModelPipeline\bin\x86\Debug\SkinnedModelPipeline.dll
+C:\Users\PeePeeSpeed\Desktop\Project Backups\Avateering-XNA v2.2 07-09-2012\SkinnedModelPipeline\bin\x86\Debug\SkinnedModelPipeline.pdb
+C:\Users\PeePeeSpeed\Desktop\Project Backups\Avateering-XNA v2.2 07-09-2012\SkinnedModelPipeline\bin\x86\Debug\SkinnedModel.dll
+C:\Users\PeePeeSpeed\Desktop\Project Backups\Avateering-XNA v2.2 07-09-2012\SkinnedModelPipeline\bin\x86\Debug\SkinnedModel.pdb
+C:\Users\PeePeeSpeed\Desktop\Project Backups\Avateering-XNA v2.2 07-09-2012\SkinnedModelPipeline\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\PeePeeSpeed\Desktop\Project Backups\Avateering-XNA v2.2 07-09-2012\SkinnedModelPipeline\obj\x86\Debug\SkinnedModelPipeline.dll
+C:\Users\PeePeeSpeed\Desktop\Project Backups\Avateering-XNA v2.2 07-09-2012\SkinnedModelPipeline\obj\x86\Debug\SkinnedModelPipeline.pdb

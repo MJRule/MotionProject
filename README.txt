@@ -13,7 +13,9 @@ Avateering client
 This is the client used to pull data from the webserver and then display it
 Feature 2.1: Finished
 Feature 2.2: Finished
-Feature 2.3: In development
+Feature 2.3: Finished
+Feature 2.4: NOT USED
+Feature 2.5: In Dev
 
 Wamp
 These are the server files used for testing
