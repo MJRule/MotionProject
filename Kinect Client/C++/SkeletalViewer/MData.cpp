@@ -31,12 +31,6 @@
 
 	void MData::transformMovementData()
 	{ 
-		//transformedData has the model: { [ skeletonIndex, startJoint[ j ], endJoint[ j ], absoluteRotation.rotationQuaternion[ j ], 
-		//									absoluteRotation.rotationMatrix[ j ], hierarchicalRotation.rotationQuaternion[ j ], 
-		//										hierarchicalRotation.rotationMatrix[ j ] ] [ NUI_SKELETON_POSITION_INDEX, 
-		//											skeletonData.SkeletonPositions[ j ], skeletalData.eSkeletonTrackingState[ j ] ] 
-		//												[ skeletonData.Position ] [ skeletonData.dwTrackingID ] 
-		//													[ skeletonData.eTrackingState ] }
 		transformedData = ""; 
 
 		std::stringstream ss;

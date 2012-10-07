@@ -17,36 +17,93 @@ namespace Microsoft.Samples.Kinect.Avateering
 
         private string writeString;
 
+        //---------------------------------------------------
+        // @Name:		MData
+        // @Author:		Lane - PeePeeSpeed
+        // @Inputs:		string networkString
+        // @Outputs:	NULL
+        // 
+        // @Desc:		Class constructor for MData.
+        //			    Takes a string for the data
+        //			    to be transformed into a Skeleton.
+        //---------------------------------------------------
         public MData(string networkString)
         {
             transformedData = networkString;
             transformMDataToSkeleton();
         }
 
-        public MData()
-        { }
-
+        //---------------------------------------------------
+        // @Name:		getSkeletonData
+        // @Author:		Lane - PeePeeSpeed
+        // @Inputs:		NULL
+        // @Outputs:	Microsoft.Kinect.Skeleton skeleton
+        // 
+        // @Desc:		This GET method returns a completed
+        //			    Skeleton ready to be drawn.
+        //---------------------------------------------------
         public Skeleton getSkeletonData()
         {
             return skeleton;
         }
 
+        //---------------------------------------------------
+        // @Name:		setSkeletonData
+        // @Author:		Lane - PeePeeSpeed
+        // @Inputs:		Microsoft.Kinect.Skeleton skeleton
+        // @Outputs:	NULL
+        // 
+        // @Desc:		This SET method sets the MData
+        //			    Skeleton to an inputted Skeleton.
+        //---------------------------------------------------
         public void setSkeletonData(Skeleton s)
         {
             skeleton = s;
         }
 
+        //---------------------------------------------------
+        // @Name:		getTransMData
+        // @Author:		Lane - PeePeeSpeed
+        // @Inputs:		NULL
+        // @Outputs:	string transformedData
+        // 
+        // @Desc:		This GET method returns the
+        //			    unedited transformedData string.
+        //---------------------------------------------------
         public string getTransMData()
         {
             return transformedData;
         }
 
+        //---------------------------------------------------
+        // @Name:		setTransMData
+        // @Author:		Lane - PeePeeSpeed
+        // @Inputs:		string transformedData
+        // @Outputs:	NULL
+        // 
+        // @Desc:		This SET method sets the MData
+        //			    transformedData string to an
+        //			    inputted string.
+        //---------------------------------------------------
         public void setTransMData(string s)
         {
             transformedData = s;
             transformMDataToSkeleton();
         }
 
+        //---------------------------------------------------
+        // @Name:		transformMDataToSkeleton
+        // @Author:		Lane - PeePeeSpeed
+        // @Inputs:		NULL
+        // @Outputs:	NULL
+        // 
+        // @Desc:		Takes the string received from
+        //			    the server and splits it into
+        //			    tokens based on the comma delimiter.
+        //			    Then sets each index in the splitString
+        //			    array into the correct value
+        //			    within a Microsoft.Kinect.Skeleton.
+        //---------------------------------------------------
         public void transformMDataToSkeleton()
         {
             if (null == skeleton)
@@ -65,7 +122,6 @@ namespace Microsoft.Samples.Kinect.Avateering
             }
             catch (System.NullReferenceException)
             {
-                //MessageBox.Show("There is no data being retreived from the server!", "Error");
                 return;
             }
 
@@ -78,7 +134,6 @@ namespace Microsoft.Samples.Kinect.Avateering
             //assert here?
             if (splitString[0].Equals("\r\nnull") || splitString[0].Equals(""))//this is what defines null from 3Der.php
             {
-                //MessageBox.Show("There is no data being retreived from the server!", "Error");//system seems to be pulling "" only from server.FIX THIS
                 return;
             }
 
@@ -125,10 +180,6 @@ namespace Microsoft.Samples.Kinect.Avateering
             {
                 BoneOrientation bO = skeleton.BoneOrientations[j];
 
-                /* Test for reference ID, they are the same. */
-                //MessageBox.Show(bO.GetHashCode().ToString());
-                //MessageBox.Show(skeleton.BoneOrientations[j].GetHashCode().ToString());
-
                 absoluteV4[iterator].X = (float)Convert.ToDouble(splitString[count]);
                 count++;
                 absoluteV4[iterator].Y = (float)Convert.ToDouble(splitString[count]);
@@ -138,13 +189,7 @@ namespace Microsoft.Samples.Kinect.Avateering
                 absoluteV4[iterator].W = (float)Convert.ToDouble(splitString[count]);
                 count++;
 
-                /*MessageBox.Show(absoluteV4[iterator].X.ToString() + " " + absoluteV4[iterator].Y.ToString()
-                    + " " + absoluteV4[iterator].Z.ToString(), "absoluteV4" );*/
-
                 bO.AbsoluteRotation.Quaternion = absoluteV4[iterator];
-
-                /*MessageBox.Show(bO.AbsoluteRotation.Quaternion.X.ToString() + " " + bO.AbsoluteRotation.Quaternion.Y.ToString()
-                    + " " + bO.AbsoluteRotation.Quaternion.Z.ToString());*/
 
                 absoluteM4[iterator].M11 = (float)Convert.ToDouble(splitString[count]);
                 count++;
@@ -232,23 +277,7 @@ namespace Microsoft.Samples.Kinect.Avateering
                 iterator++;
             }
 
-            //Tested absoluteV4[0] and [1]'s Hashcodes. They were different.
-
-            /*foreach (JointType j in jointTypeValues)
-            {
-                Joint jOr = skeleton.Joints[j];
-                MessageBox.Show(jOr.Position.X.ToString() + " " + jOr.Position.Y.ToString()
-                    + " " + jOr.Position.Z.ToString(), "Joint Position");
-            }
-
-            foreach (JointType j in jointTypeValues)
-            {
-                BoneOrientation bOr = skeleton.BoneOrientations[j];
-                MessageBox.Show(bOr.AbsoluteRotation.Quaternion.X.ToString() + " " +  bOr.AbsoluteRotation.Quaternion.Y.ToString()
-                    + " " + bOr.AbsoluteRotation.Quaternion.Z.ToString(), "skeleton Rotation");
-            }*/
-
-            /*TEST Split into array for distribution*/
+            /*TEST Split into array and write to file.*/
             //writeString = "";
             //int i = 0;
             //foreach (string s in splitString)
@@ -262,12 +291,31 @@ namespace Microsoft.Samples.Kinect.Avateering
             //writeToFile();
         }
 
+        //---------------------------------------------------
+        // @Name:		getSkeletonIndex
+        // @Author:		Lane - PeePeeSpeed
+        // @Inputs:		NULL
+        // @Outputs:	int skeletonIndex
+        // 
+        // @Desc:		This GET method returns the index
+        //			    of the Skeleton. (0 - 5).
+        //---------------------------------------------------
         public int getSkeletonIndex()
         {
             return skeletonIndex;
         }
-        
-        public void writeToFile()//For Testing Purposes.
+
+        //---------------------------------------------------
+        // @Name:		writeToFile
+        // @Author:		Lane - PeePeeSpeed
+        // @Inputs:		NULL
+        // @Outputs:	NULL
+        // 
+        // @Desc:		Writes a string of data to the
+        //			    AvateeringData.txt file. Used
+        //			    for testing only.
+        //---------------------------------------------------
+        public void writeToFile()
         {
             StreamWriter f = new StreamWriter("AvateeringData.txt");
             f.Write(writeString);

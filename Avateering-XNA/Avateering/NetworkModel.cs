@@ -10,42 +10,52 @@ namespace Microsoft.Samples.Kinect.Avateering
     {
         string url;
         string queue;
-        WebRequest wrGetUrl;
         
+        WebRequest wrGetUrl;
         Stream objStream;
         StreamReader objReader;
 
         string transformedData;
 
-        //implement HTTP requests etc
+        //---------------------------------------------------
+        // @Name:		NetworkModel
+        // @Author:		Lane - PeePeeSpeed
+        // @Inputs:		string - url, string queue
+        // @Outputs:	NULL
+        // 
+        // @Desc:		Class constructor for NetworkModel
+        //---------------------------------------------------
         public NetworkModel( string httpURL, string qid )
         {
             url = httpURL;
             queue = qid;
 
             attemptConnection( url, queue);
-
-            //MessageBox.Show(transformedData);
-            //writeToFile();
         }
 
+        //---------------------------------------------------
+        // @Name:		attemptConnection
+        // @Author:		Lane - PeePeeSpeed
+        // @Inputs:		string url, string queue
+        // @Outputs:	NULL
+        // 
+        // @Desc:		Attempts to create a connection
+        //			    to the server for data transfer.
+        //---------------------------------------------------
         public void attemptConnection(string u, string q)
         {
             try
             {
                 wrGetUrl = WebRequest.Create(u + "?cmd=get&Value=" + q);
-
                 objStream = wrGetUrl.GetResponse().GetResponseStream();
-
                 objReader = new StreamReader(objStream);
 
                 //assert here?
-                //getDataFromNetwork();
             }
             catch (System.Net.WebException)
             {
                 DialogResult dialogResult = MessageBox.Show("Could not establish connection to server\n\nDo you want to try again? System will exit on No.", "Error", MessageBoxButtons.YesNo);
-                //asserts in all the places?
+
                 switch (dialogResult)
                 {
                     case DialogResult.Yes:
@@ -58,6 +68,15 @@ namespace Microsoft.Samples.Kinect.Avateering
             }
         }
 
+        //---------------------------------------------------
+        // @Name:		getDataFromNetwork
+        // @Author:		Lane - PeePeeSpeed
+        // @Inputs:		NULL
+        // @Outputs:	NULL
+        // 
+        // @Desc:		Attempts to pull the latest
+        //			    string of data from the server.
+        //---------------------------------------------------
         public void getDataFromNetwork()
         {
             //assert harr?
@@ -68,6 +87,16 @@ namespace Microsoft.Samples.Kinect.Avateering
             objReader.Close();
         }
 
+        //---------------------------------------------------
+        // @Name:		writeToFile
+        // @Author:		Lane - PeePeeSpeed
+        // @Inputs:		NULL
+        // @Outputs:	NULL
+        // 
+        // @Desc:		Writes a string of data to the
+        //			    AvateeringData.txt file. Used
+        //			    for testing only.
+        //---------------------------------------------------
         public void writeToFile()
         {
             //assert here?
@@ -76,6 +105,16 @@ namespace Microsoft.Samples.Kinect.Avateering
             f.Close();
         }
 
+        //---------------------------------------------------
+        // @Name:		readFromFile
+        // @Author:		Lane - PeePeeSpeed
+        // @Inputs:		NULL
+        // @Outputs:	NULL
+        // 
+        // @Desc:		Reads a string of data from 
+        //			    the AvateeringData.txt file.
+        //			    Used for testing only.
+        //---------------------------------------------------
         public void readFromFile()
         {
             //assert here?
@@ -84,6 +123,15 @@ namespace Microsoft.Samples.Kinect.Avateering
             fS.Close();
         }
 
+        //---------------------------------------------------
+        // @Name:		getTransformedData
+        // @Author:		Lane - PeePeeSpeed
+        // @Inputs:		NULL
+        // @Outputs:	string transformedData
+        // 
+        // @Desc:		This GET method returns the string
+        //			    transformedData.
+        //---------------------------------------------------
         public string getTransformedData()
         {
             return transformedData;
