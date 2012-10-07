@@ -387,10 +387,10 @@ namespace Microsoft.Samples.Kinect.Avateering
                 float deltaNuiTime = currentNuiTime - this.lastNuiTime;
 
                 // Fixup Skeleton to improve avatar appearance.
-                if (this.filterClippedLegs && !this.Chooser.SeatedMode && null != this.clippedLegs)
+                /*if (this.filterClippedLegs && !this.Chooser.SeatedMode && null != this.clippedLegs)
                 {
                     this.clippedLegs.FilterSkeleton(this.skeleton, deltaNuiTime);
-                }
+                }*/
 
                 if (this.selfIntersectionConstraints)
                 {
@@ -398,7 +398,7 @@ namespace Microsoft.Samples.Kinect.Avateering
                     SkeletonJointsSelfIntersectionConstraint.Constrain(this.skeleton);
                 }
 
-                if (this.tiltCompensate)
+                /*if (this.tiltCompensate)
                 {
                     // Correct for sensor tilt if we have a valid floor plane or a sensor tilt value from the motor.
                     SkeletonJointsSensorTiltCorrection.CorrectSensorTilt(this.skeleton, this.FloorClipPlane, this.Chooser.Sensor.ElevationAngle);
@@ -409,7 +409,7 @@ namespace Microsoft.Samples.Kinect.Avateering
                     // Correct for the sensor height from the floor (moves the skeleton to the floor plane) if we have a valid plane, or feet visible in the image.
                     // Note that by default this will not run unless we have set a non-zero AvatarHipCenterHeight
                     this.sensorOffsetCorrection.CorrectSkeletonOffsetFromFloor(this.skeleton, this.FloorClipPlane, this.AvatarHipCenterHeight);
-                }
+                }*/
 
                 if (this.mirrorView)
                 {

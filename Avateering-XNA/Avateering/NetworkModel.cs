@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Net;
 using System.IO;
-//using System.Windows; //Commented as .Forms also provides MessageBox
+//using System.Windows; //PeePeeSpeed - Commented as .Forms also provides MessageBox
 using System.Windows.Forms;
 
 namespace Microsoft.Samples.Kinect.Avateering
 {
-
     public class NetworkModel
     {
         string url;
@@ -27,8 +26,7 @@ namespace Microsoft.Samples.Kinect.Avateering
             attemptConnection( url, queue);
 
             //MessageBox.Show(transformedData);
-
-            writeToFile();
+            //writeToFile();
         }
 
         public void attemptConnection(string u, string q)
@@ -46,7 +44,7 @@ namespace Microsoft.Samples.Kinect.Avateering
             }
             catch (System.Net.WebException)
             {
-                DialogResult dialogResult = MessageBox.Show("Could not establish connection to server\n\nDo you want to try again?", "Error", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Could not establish connection to server\n\nDo you want to try again? System will exit on No.", "Error", MessageBoxButtons.YesNo);
                 //asserts in all the places?
                 switch (dialogResult)
                 {
@@ -54,6 +52,7 @@ namespace Microsoft.Samples.Kinect.Avateering
                         attemptConnection(u, q);
                         break;
                     case DialogResult.No:
+                        System.Environment.Exit(0);
                         break;
                 }
             }
@@ -62,7 +61,11 @@ namespace Microsoft.Samples.Kinect.Avateering
         public void getDataFromNetwork()
         {
             //assert harr?
+            wrGetUrl = WebRequest.Create(url + "?cmd=get&Value=" + queue);
+            objStream = wrGetUrl.GetResponse().GetResponseStream();
+            objReader = new StreamReader(objStream);
             transformedData = objReader.ReadToEnd();
+            objReader.Close();
         }
 
         public void writeToFile()
@@ -70,7 +73,6 @@ namespace Microsoft.Samples.Kinect.Avateering
             //assert here?
             StreamWriter f = new StreamWriter("AvateeringData.txt");
             f.Write(transformedData);
-
             f.Close();
         }
 
@@ -79,7 +81,6 @@ namespace Microsoft.Samples.Kinect.Avateering
             //assert here?
             StreamReader fS = new StreamReader("AvateeringData.txt");
             string ss = fS.ReadToEnd();
-
             fS.Close();
         }
 
@@ -87,6 +88,5 @@ namespace Microsoft.Samples.Kinect.Avateering
         {
             return transformedData;
         }
-
     }
 }

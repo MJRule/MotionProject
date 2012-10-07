@@ -13,9 +13,10 @@ namespace Microsoft.Samples.Kinect.Avateering
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
     using Microsoft.Xna.Framework.Input;
-    //PPS
+    //PeePeeSpeed - Added Libraries for Form display
     using System.Windows;
     using Microsoft.VisualBasic;
+    //End PPS
 
     /// <summary>
     /// Sample game showing how to display skinned character and avateer with Kinect for Windows.
@@ -218,16 +219,33 @@ namespace Microsoft.Samples.Kinect.Avateering
         private bool leanAdjust; 
 
         /// <summary>
-        /// //PPS NetworkModel
+        /// PeePeeSpeed NetworkModel - Used to create a connection
+        /// to the server for the pulling of data.
         /// </summary>
         private NetworkModel networkModel;
 
         /// <summary>
-        /// //PPS MData
+        /// PeePeeSpeed MData - Used to transform the data retrieved from 
+        /// the server into a Skeleton to be displayed.
         /// </summary>
         private MData mData;
 
+        /// <summary>
+        /// PeePeeSpeed SkeletonFrame - Used to hold the Skeleton from
+        /// MData for display.
+        /// </summary>
+        private SkeletonFrame frame;
+
+        /// <summary>
+        /// PeePeeSpeed string - Used to set the address for the connection
+        /// to the server.
+        /// </summary>
         private string address;
+
+        /// <summary>
+        /// PeePeeSpeed string - Used to set the queue required for the 3Der.php
+        /// script code.
+        /// </summary>
         private string queue;
 
         #endregion
@@ -262,7 +280,6 @@ namespace Microsoft.Samples.Kinect.Avateering
             }
             MessageBox.Show("Please correctly enter the address and queue information.\nEnsure that the address is prefixed by \"http://", "Error");
             return false;
-            //ask user if they want to exit.
         }
 
 
@@ -275,7 +292,6 @@ namespace Microsoft.Samples.Kinect.Avateering
             this.IsFixedTimeStep = false;
             this.IsMouseVisible = true;
 
-            //PPS IN INITIALISE. CREATE NETWORKMODEL
             int setUpCount = 0;
             do
             {
@@ -288,6 +304,7 @@ namespace Microsoft.Samples.Kinect.Avateering
             {
                 networkModel = new NetworkModel(address, queue);
                 networkModel.getDataFromNetwork();
+                //MessageBox.Show("setUp");
                 mData = new MData(networkModel.getTransformedData());
             }
             else
@@ -295,12 +312,6 @@ namespace Microsoft.Samples.Kinect.Avateering
                 MessageBox.Show("No HTTP address entered, application requires correct address to run.\n\nApplication will now exit.", "Application Exiting");
                 System.Environment.Exit(0);
             }
-
-            //Create MData and pass string from networkModel get.
-                //Transform within Mdata, turn back into skeleton.
-            
-
-            //Save into private static Skeleton[] SkeletonData { get; set; } Below
 
             // Setup the graphics device for rendering
             this.graphics = new GraphicsDeviceManager(this);
@@ -311,7 +322,7 @@ namespace Microsoft.Samples.Kinect.Avateering
             Content.RootDirectory = "Content";
 //REMOVE ALL CHOOSER!!!!!!!!!!!!!!!!! - PPS
             // The Kinect sensor will use 640x480 for the color stream (default) and 320x240 for depth
-            this.chooser = new KinectChooser(this, ColorImageFormat.RgbResolution640x480Fps30, DepthImageFormat.Resolution320x240Fps30);
+            /*this.chooser = new KinectChooser(this, ColorImageFormat.RgbResolution640x480Fps30, DepthImageFormat.Resolution320x240Fps30);
             this.Services.AddService(typeof(KinectChooser), this.chooser);
 
             // Optionally set near mode for close range avateering (0.4m up to 3m)
@@ -321,7 +332,7 @@ namespace Microsoft.Samples.Kinect.Avateering
             this.chooser.SeatedMode = false;
 
             // Adding these objects as XNA Game components enables automatic calls to the overridden LoadContent, Update, etc.. methods
-            this.Components.Add(this.chooser);
+            this.Components.Add(this.chooser);*/
 
             // Create a ground plane for the model to stand on
             this.planarXzGrid = new GridXz(this, new Vector3(0, 0, 0), new Vector2(500, 500), new Vector2(10, 10), Color.Black);
@@ -350,13 +361,13 @@ namespace Microsoft.Samples.Kinect.Avateering
             this.avatarHipCenterDrawHeight = 0.8f;  // in meters
 
             // Setup the depth stream
-            this.depthStream = new DepthStreamRenderer(this);
+            //this.depthStream = new DepthStreamRenderer(this);
 
             // Setup the skeleton stream the same as depth stream 
-            this.skeletonStream = new SkeletonStreamRenderer(this, this.SkeletonToDepthMap);
+            //this.skeletonStream = new SkeletonStreamRenderer(this, this.SkeletonToDepthMap);
             
             // Update Depth and Skeleton Stream size and location based on the back-buffer
-            this.UpdateStreamSizeAndLocation();
+            //this.UpdateStreamSizeAndLocation();
 
             this.previousKeyboard = Keyboard.GetState();
         }
@@ -417,8 +428,8 @@ namespace Microsoft.Samples.Kinect.Avateering
             }
 
             // Add the model to the avatar animator
-            //this.animator.Avatar = this.currentModel;
-            //this.animator.AvatarHipCenterHeight = this.avatarHipCenterDrawHeight;
+            this.animator.Avatar = this.currentModel;
+            this.animator.AvatarHipCenterHeight = this.avatarHipCenterDrawHeight;
 
             // Set the Nui joint to model mapping for this avatar
             this.BuildJointHierarchy();
@@ -502,38 +513,43 @@ namespace Microsoft.Samples.Kinect.Avateering
             this.previousKeyboard = this.currentKeyboard;
 
             // If the sensor is not found, not running, or not connected, stop now
-            if (null == this.chooser || null == this.Chooser.Sensor || false == this.Chooser.Sensor.IsRunning || this.Chooser.Sensor.Status != KinectStatus.Connected)
+            /*if (null == this.chooser || null == this.Chooser.Sensor || false == this.Chooser.Sensor.IsRunning || this.Chooser.Sensor.Status != KinectStatus.Connected)
             {
                 return;
-            }
+            }*/
 
             bool newFrame = false;
 
-            using (var skeletonFrame = this.Chooser.Sensor.SkeletonStream.OpenNextFrame(0))
+            networkModel.getDataFromNetwork();
+            mData.setTransMData(networkModel.getTransformedData());
+
+            //using (var skeletonFrame = this.Chooser.Sensor.SkeletonStream.OpenNextFrame(0))
+            using (var skeletonFrame = frame) 
             {
                 // Sometimes we get a null frame back if no data is ready
-                if (null != skeletonFrame)
+                //if (null != skeletonFrame)
+                if (null == skeletonFrame)
                 {
                     newFrame = true;
 
                     // Reallocate if necessary
-                    if (null == SkeletonData || SkeletonData.Length != skeletonFrame.SkeletonArrayLength)
+                    /*if (null == SkeletonData || SkeletonData.Length != skeletonFrame.SkeletonArrayLength)
                     {
                         SkeletonData = new Skeleton[skeletonFrame.SkeletonArrayLength];
-                    }
-
-                    skeletonFrame.CopySkeletonDataTo(SkeletonData);
+                    }*/
+                    //MessageBox.Show(skeletonFrame.SkeletonArrayLength.ToString());
+                    //skeletonFrame.CopySkeletonDataTo(SkeletonData);
 
                     // Select the first tracked skeleton we see to avateer //THIS COULD BE WHERE TO ADD THE SKELETON FROM MDATA
-                    Skeleton rawSkeleton =
-                        (from s in SkeletonData
+                    Skeleton rawSkeleton = mData.getSkeletonData();
+                        /*(from s in SkeletonData
                          where s != null && s.TrackingState == SkeletonTrackingState.Tracked
-                         select s).FirstOrDefault();
+                         select s).FirstOrDefault();*/
 
                     if (null != this.animator && null != rawSkeleton)
                     {
                         this.animator.CopySkeleton(rawSkeleton);
-                        this.animator.FloorClipPlane = skeletonFrame.FloorClipPlane;
+                        //this.animator.FloorClipPlane = skeletonFrame.FloorClipPlane;
 
                         // Reset the filters if the skeleton was not seen before now
                         if (this.skeletonDetected == false)
@@ -553,11 +569,11 @@ namespace Microsoft.Samples.Kinect.Avateering
             if (newFrame)
             {
                 // Call the stream update manually as they are not a game component
-                if (null != this.depthStream && null != this.skeletonStream)
+                /*if (null != this.depthStream && null != this.skeletonStream)
                 {
                     this.depthStream.Update(gameTime);
                     this.skeletonStream.Update(gameTime, SkeletonData);
-                }
+                }*/
 
                 // Update the avatar renderer
                 if (null != this.animator)
@@ -591,10 +607,10 @@ namespace Microsoft.Samples.Kinect.Avateering
             // Kinect vertical FOV in degrees
             float nominalVerticalFieldOfView = 45.6f;
 
-            if (null != this.chooser && null != this.Chooser.Sensor && this.Chooser.Sensor.IsRunning && KinectStatus.Connected == this.Chooser.Sensor.Status)
+            /*if (null != this.chooser && null != this.Chooser.Sensor && this.Chooser.Sensor.IsRunning && KinectStatus.Connected == this.Chooser.Sensor.Status)
             {
                 nominalVerticalFieldOfView = this.chooser.Sensor.DepthStream.NominalVerticalFieldOfView;
-            }
+            }*/
 
             this.projection = Matrix.CreatePerspectiveFieldOfView(
                                                                 (nominalVerticalFieldOfView * (float)Math.PI / 180.0f),
@@ -614,7 +630,7 @@ namespace Microsoft.Samples.Kinect.Avateering
         protected override void Draw(GameTime gameTime)
         {
             // Clear the screen
-            GraphicsDevice.Clear(Color.White);
+            GraphicsDevice.Clear(Color.White);//WHITE
 
             this.UpdateViewingCamera();
 
@@ -897,10 +913,10 @@ namespace Microsoft.Samples.Kinect.Avateering
             }
 
             // If seated mode is on, sit the avatar down
-            if (this.Chooser.SeatedMode && this.setSeatedPostureInSeatedMode)
+            /*if (this.Chooser.SeatedMode && this.setSeatedPostureInSeatedMode)
             {
                 this.SetSeatedPosture(ref boneTransforms);
-            }
+            }*/
 
             // Set the world position of the avatar
             this.SetAvatarRootWorldPosition(skeleton, ref boneTransforms);
@@ -938,7 +954,7 @@ namespace Microsoft.Samples.Kinect.Avateering
             else if (bone.EndJoint == JointType.ShoulderCenter)
             {
                 // This contains an absolute rotation if we are in seated mode, or the hip center is not tracked, as the HipCenter will be identity
-                if (this.chooser.SeatedMode || (this.Chooser.SeatedMode == false && skeleton.Joints[JointType.HipCenter].TrackingState == JointTrackingState.NotTracked))
+                /*if (this.chooser.SeatedMode || (this.Chooser.SeatedMode == false && skeleton.Joints[JointType.HipCenter].TrackingState == JointTrackingState.NotTracked))
                 {
                     bindRoot.Translation = Vector3.Zero;
                     Matrix invBindRoot = Matrix.Invert(bindRoot);
@@ -953,7 +969,7 @@ namespace Microsoft.Samples.Kinect.Avateering
                     Matrix combined = (invBindRoot * hipOrientation) * invPelvis;
 
                     this.ReplaceBoneMatrix(JointType.HipCenter, combined, true, ref boneTransforms);
-                }
+                }*/
             }
             else if (bone.EndJoint == JointType.Spine)
             {
@@ -1170,10 +1186,10 @@ namespace Microsoft.Samples.Kinect.Avateering
         private void SetAvatarRootWorldPosition(Skeleton skeleton, ref Matrix[] boneTransforms)
         {
             // Get XNA world position of skeleton.
-            Matrix worldTransform = this.GetModelWorldTranslation(skeleton.Joints, this.chooser.SeatedMode); 
+            //Matrix worldTransform = this.GetModelWorldTranslation(skeleton.Joints, this.chooser.SeatedMode); 
 
             // set root translation
-            boneTransforms[0].Translation = worldTransform.Translation;
+            //boneTransforms[0].Translation = worldTransform.Translation;
         }
 
         /// <summary>

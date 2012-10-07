@@ -47,7 +47,7 @@ namespace Microsoft.Samples.Kinect.Avateering
             transformMDataToSkeleton();
         }
 
-        private void transformMDataToSkeleton()
+        public void transformMDataToSkeleton()
         {
             if (null == skeleton)
             {
@@ -65,7 +65,7 @@ namespace Microsoft.Samples.Kinect.Avateering
             }
             catch (System.NullReferenceException)
             {
-                MessageBox.Show("There is no data being retreived from the server!", "Error");//here
+                //MessageBox.Show("There is no data being retreived from the server!", "Error");
                 return;
             }
 
@@ -76,9 +76,9 @@ namespace Microsoft.Samples.Kinect.Avateering
             SkeletonPoint[] sPoint = new SkeletonPoint[21];
 
             //assert here?
-            if (splitString[0].Equals("\r\nnull"))//this is what defines null from 3Der.php
+            if (splitString[0].Equals("\r\nnull") || splitString[0].Equals(""))//this is what defines null from 3Der.php
             {
-                MessageBox.Show("There is no data being retreived from the server!", "Error");
+                //MessageBox.Show("There is no data being retreived from the server!", "Error");//system seems to be pulling "" only from server.FIX THIS
                 return;
             }
 

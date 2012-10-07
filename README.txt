@@ -15,7 +15,7 @@ Feature 2.1: Finished
 Feature 2.2: Finished
 Feature 2.3: Finished
 Feature 2.4: NOT USED
-Feature 2.5: In Dev
+Feature 2.5: Finished
 
 Wamp
 These are the server files used for testing

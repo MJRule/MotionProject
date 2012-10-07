@@ -11,7 +11,7 @@
       <Time>2012-06-10T17:56:00+12:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\dude_0.xml</Key>
-        <Value>2012-09-30T16:08:20.7971853+13:00</Value>
+        <Value>2012-10-05T13:17:19.6802166+13:00</Value>
       </Dependency>
       <Request>C:\Users\PeePeeSpeed\Desktop\Avateering-XNA\Avateering\bin\x86\Debug\Content\head_0.xnb</Request>
       <Request>C:\Users\PeePeeSpeed\Desktop\Avateering-XNA\Avateering\bin\x86\Debug\Content\jacket_0.xnb</Request>
@@ -157,7 +157,7 @@
     <Assemblies>
       <Assembly>
         <Key>C:\Users\PeePeeSpeed\Desktop\Avateering-XNA\SkinnedModelPipeline\bin\x86\Debug\SkinnedModelPipeline.dll</Key>
-        <Value>2012-09-30T16:08:14.4378216+13:00</Value>
+        <Value>2012-10-05T13:17:10.8557119+13:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
