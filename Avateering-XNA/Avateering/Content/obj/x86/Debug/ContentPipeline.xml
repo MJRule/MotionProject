@@ -7,16 +7,16 @@
       <Importer>FbxImporter</Importer>
       <Processor>SkinnedModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\PeePeeSpeed\Desktop\Avateering-XNA\Avateering\bin\x86\Debug\Content\dude.xnb</Output>
-      <Time>2012-06-10T17:56:00+12:00</Time>
+      <Output>C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\dude.xnb</Output>
+      <Time>2012-10-07T05:34:44+13:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\dude_0.xml</Key>
-        <Value>2012-10-05T13:17:19.6802166+13:00</Value>
+        <Value>2012-10-08T11:41:42.3254756+13:00</Value>
       </Dependency>
-      <Request>C:\Users\PeePeeSpeed\Desktop\Avateering-XNA\Avateering\bin\x86\Debug\Content\head_0.xnb</Request>
-      <Request>C:\Users\PeePeeSpeed\Desktop\Avateering-XNA\Avateering\bin\x86\Debug\Content\jacket_0.xnb</Request>
-      <Request>C:\Users\PeePeeSpeed\Desktop\Avateering-XNA\Avateering\bin\x86\Debug\Content\pants_0.xnb</Request>
-      <Request>C:\Users\PeePeeSpeed\Desktop\Avateering-XNA\Avateering\bin\x86\Debug\Content\upBodyC_0.xnb</Request>
+      <Request>C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\head_0.xnb</Request>
+      <Request>C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\jacket_0.xnb</Request>
+      <Request>C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\pants_0.xnb</Request>
+      <Request>C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\upBodyC_0.xnb</Request>
     </Item>
     <Item>
       <Source>ChooserBackground.png</Source>
@@ -24,8 +24,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\PeePeeSpeed\Desktop\Avateering-XNA\Avateering\bin\x86\Debug\Content\ChooserBackground.xnb</Output>
-      <Time>2012-06-10T17:55:58+12:00</Time>
+      <Output>C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\ChooserBackground.xnb</Output>
+      <Time>2012-10-07T05:34:44+13:00</Time>
     </Item>
     <Item>
       <Source>Joint.png</Source>
@@ -33,8 +33,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\PeePeeSpeed\Desktop\Avateering-XNA\Avateering\bin\x86\Debug\Content\Joint.xnb</Output>
-      <Time>2012-06-10T17:55:58+12:00</Time>
+      <Output>C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\Joint.xnb</Output>
+      <Time>2012-10-07T05:34:44+13:00</Time>
     </Item>
     <Item>
       <Source>Bone.png</Source>
@@ -42,8 +42,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\PeePeeSpeed\Desktop\Avateering-XNA\Avateering\bin\x86\Debug\Content\Bone.xnb</Output>
-      <Time>2012-06-10T17:55:58+12:00</Time>
+      <Output>C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\Bone.xnb</Output>
+      <Time>2012-10-07T05:34:44+13:00</Time>
     </Item>
     <Item>
       <Source>Header.png</Source>
@@ -51,8 +51,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\PeePeeSpeed\Desktop\Avateering-XNA\Avateering\bin\x86\Debug\Content\Header.xnb</Output>
-      <Time>2012-06-10T17:55:58+12:00</Time>
+      <Output>C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\Header.xnb</Output>
+      <Time>2012-10-07T05:34:44+13:00</Time>
     </Item>
     <Item>
       <Source>Segoe16.spritefont</Source>
@@ -60,8 +60,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\PeePeeSpeed\Desktop\Avateering-XNA\Avateering\bin\x86\Debug\Content\Segoe16.xnb</Output>
-      <Time>2012-06-10T17:55:58+12:00</Time>
+      <Output>C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\Segoe16.xnb</Output>
+      <Time>2012-10-07T05:34:44+13:00</Time>
     </Item>
     <Item>
       <Source>KinectDepthVisualizer.fx</Source>
@@ -69,15 +69,15 @@
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\PeePeeSpeed\Desktop\Avateering-XNA\Avateering\bin\x86\Debug\Content\KinectDepthVisualizer.xnb</Output>
-      <Time>2012-06-10T17:55:58+12:00</Time>
+      <Output>C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\KinectDepthVisualizer.xnb</Output>
+      <Time>2012-10-07T05:34:44+13:00</Time>
     </Item>
     <Item>
       <Source>dude.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\dude_0.xml</Output>
-      <Time>2012-06-10T17:56:00+12:00</Time>
+      <Time>2012-10-07T05:34:44+13:00</Time>
     </Item>
     <Item>
       <Source>head.tga</Source>
@@ -92,8 +92,8 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\PeePeeSpeed\Desktop\Avateering-XNA\Avateering\bin\x86\Debug\Content\head_0.xnb</Output>
-      <Time>2012-06-10T17:55:58+12:00</Time>
+      <Output>C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\head_0.xnb</Output>
+      <Time>2012-10-07T05:34:44+13:00</Time>
     </Item>
     <Item>
       <Source>jacket.tga</Source>
@@ -108,8 +108,8 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\PeePeeSpeed\Desktop\Avateering-XNA\Avateering\bin\x86\Debug\Content\jacket_0.xnb</Output>
-      <Time>2012-06-10T17:56:00+12:00</Time>
+      <Output>C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\jacket_0.xnb</Output>
+      <Time>2012-10-07T05:34:44+13:00</Time>
     </Item>
     <Item>
       <Source>pants.tga</Source>
@@ -124,8 +124,8 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\PeePeeSpeed\Desktop\Avateering-XNA\Avateering\bin\x86\Debug\Content\pants_0.xnb</Output>
-      <Time>2012-06-10T17:55:58+12:00</Time>
+      <Output>C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\pants_0.xnb</Output>
+      <Time>2012-10-07T05:34:44+13:00</Time>
     </Item>
     <Item>
       <Source>upBodyC.tga</Source>
@@ -140,8 +140,8 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\PeePeeSpeed\Desktop\Avateering-XNA\Avateering\bin\x86\Debug\Content\upBodyC_0.xnb</Output>
-      <Time>2012-06-10T17:55:58+12:00</Time>
+      <Output>C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\upBodyC_0.xnb</Output>
+      <Time>2012-10-07T05:34:44+13:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -149,15 +149,15 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\PeePeeSpeed\Desktop\Avateering-XNA\Avateering\Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\PeePeeSpeed\Desktop\Avateering-XNA\Avateering\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\PeePeeSpeed\Desktop\Avateering-XNA\Avateering\Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\PeePeeSpeed\Desktop\Avateering-XNA\Avateering\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
-        <Key>C:\Users\PeePeeSpeed\Desktop\Avateering-XNA\SkinnedModelPipeline\bin\x86\Debug\SkinnedModelPipeline.dll</Key>
-        <Value>2012-10-05T13:17:10.8557119+13:00</Value>
+        <Key>C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\SkinnedModelPipeline\bin\x86\Debug\SkinnedModelPipeline.dll</Key>
+        <Value>2012-10-07T05:34:44+13:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>

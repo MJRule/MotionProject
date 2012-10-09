@@ -30,13 +30,13 @@ NetworkModel::~NetworkModel(void)
 }
 
 //---------------------------------------------------
-// @Name:		connect
-// @Author:		Lane (PeePeeSpeed)/ James Bayliss
-// @Inputs:		char* IPaddress, int port) 
-// @Outputs:	bool stating whether there is a connection  or not
-//
-// @Desc:		Attempts a connection to the local or remote server. Sets 'connected' to 1 if it is successful.
-//				Otherwise, it catches and displays the appropriate error, then deletes the 'socketClient' pointer.
+// Name:	connect()	
+// Author:	Lane Cotgrove - PeePeeSpeed/ James Bayliss
+// Inputs:	STRING IPaddress
+//			INT port	
+// Outputs:	BOOL success
+// 
+// Desc:	This function allows a network model to setup a connection to a server
 //---------------------------------------------------
 bool NetworkModel::connect(std::string IPaddress, int port = 0)
 {
@@ -99,12 +99,28 @@ bool NetworkModel::connect(std::string IPaddress, int port = 0)
 	}
 }
 
+//---------------------------------------------------
+// Name:	disconnect()
+// Author:	Lane Cotgrove - PeePeeSpeed/ James Bayliss
+// Inputs:	NULL	
+// Outputs:	BOOL success
+// 
+// Desc:	This function allows a network model to disconnect from it's previous connection
+//---------------------------------------------------
 bool NetworkModel::disconnect()
 {
 	socketClient->Close();
 	return false;
 }
 
+//---------------------------------------------------
+// Name:	sendString()	
+// Author:	Lane Cotgrove - PeePeeSpeed/ James Bayliss
+// Inputs:	STRING string	
+// Outputs:	NULL
+// 
+// Desc:	This function sends a string to a previously connected server
+//---------------------------------------------------
 void NetworkModel::sendString(std::string str)
 {
 	if( isHTTP == false )
@@ -119,13 +135,27 @@ void NetworkModel::sendString(std::string str)
 	}
 }
 
+//---------------------------------------------------
+// Name:	isConnected()	
+// Author:	Lane Cotgrove - PeePeeSpeed/ James Bayliss
+// Inputs:	NULL	
+// Outputs:	BOOL success
+// 
+// Desc:	This function tests a previously set up connection for a response
+//---------------------------------------------------
 bool NetworkModel::isConnected()
 {
 	return connected;
 }
 
-// private methods
-
+//---------------------------------------------------
+// Name:	HttpDomain()	
+// Author:	Todd Cochrane
+// Inputs:	WSTRING strURL	
+// Outputs:	WSTRING
+// 
+// Desc:	Refer to Todds notes
+//---------------------------------------------------
 std::wstring NetworkModel::HttpDomain(std::wstring strURL)
 {
     std::wstring result;
@@ -223,6 +253,14 @@ std::wstring NetworkModel::HttpDomain(std::wstring strURL)
 	return result;
 }
 
+//---------------------------------------------------
+// Name:	HttpPath()	
+// Author:	Todd Cochrane
+// Inputs:	WSTRING strURL	
+// Outputs:	WSTRING
+// 
+// Desc:	Refer to Todds notes
+//---------------------------------------------------
 std::wstring NetworkModel::HttpPath(std::wstring strURL)
 {
     std::wstring result;
@@ -327,6 +365,15 @@ std::wstring NetworkModel::HttpPath(std::wstring strURL)
 	result.resize(resultPos);
 	return result;
 }
+
+//---------------------------------------------------
+// Name:	HTTPget()
+// Author:	Todd Cochrane
+// Inputs:	STRING strURL	
+// Outputs:	NULL
+// 
+// Desc:	Refer to Todds notes
+//---------------------------------------------------
 void  NetworkModel::HTTPget(std::string strDATA)
 {
 	HINTERNET Initialize,Connection,File;
@@ -384,15 +431,44 @@ void  NetworkModel::HTTPget(std::string strDATA)
 #define THIRD_NUMBER  2
 #define FOURTH_NUMBER 3
 
+//---------------------------------------------------
+// Name:	isNumber()	
+// Author:	Todd Cochrane
+// Inputs:	CHAR c	
+// Outputs:	BOOL success
+// 
+// Desc:	This function tests to see if the value stored in a character is a number
+//---------------------------------------------------
 bool NetworkModel::isNumber(char c)
 {
 	return c >= '0' & c <= '9';
 }
+
+//---------------------------------------------------
+// Name:	isAlpha()
+// Author:	Todd Cochrane
+// Inputs:	CHAR c	
+// Outputs:	BOOL success
+// 
+// Desc:	This function tests to see if the value stored in a character is a letter
+//---------------------------------------------------
 bool NetworkModel::isAlpha( char c)
 {
 	return c >= 'a' & c <= 'z' ||  c >= 'A' & c <= 'Z';
 
 }
+
+//---------------------------------------------------
+// Name:	numberState()	
+// Author:	Todd Cochrane
+// Inputs:	CHAR current
+//		INT count
+//		INT state
+//		INT nextState	
+// Outputs:	NULL
+// 
+// Desc:	Refer to Todds notes
+//---------------------------------------------------
 void NetworkModel::numberState(char current , int & count, int & state , int nextState)
 {
 		if(isNumber(current))
@@ -415,6 +491,15 @@ void NetworkModel::numberState(char current , int & count, int & state , int nex
 		}
 		
 }
+
+//---------------------------------------------------
+// Name:	isIPAddress()	
+// Author:	Todd Cochrane
+// Inputs:	STRING address	
+// Outputs:	BOOL success
+// 
+// Desc:	This function tests to see if a string
+//---------------------------------------------------
 bool NetworkModel::isIPaddress(std::string address)
 {
    bool done = false;
@@ -471,6 +556,14 @@ bool NetworkModel::isIPaddress(std::string address)
    return result;
 }
 
+//---------------------------------------------------
+// Name:	validURL()	
+// Author:	Todd Cochrane
+// Inputs:	WSTRING strURL	
+// Outputs:	BOOL
+// 
+// Desc:	Checks to see if string is valid URL
+//---------------------------------------------------
 bool NetworkModel::validURL(std::string strURL)
 {
     std::wstring wStrURL = s2ws(strURL); 
@@ -503,6 +596,14 @@ bool NetworkModel::validURL(std::string strURL)
 	return result;
 }
 
+//---------------------------------------------------
+// Name:	httpGetTest()	
+// Author:	Todd Cochrane
+// Inputs:	NULL	
+// Outputs:	NULL
+// 
+// Desc:	Refer to Todds notes
+//---------------------------------------------------
 void NetworkModel::httpGetTest()
 {
 	HINTERNET Initialize,Connection,File;

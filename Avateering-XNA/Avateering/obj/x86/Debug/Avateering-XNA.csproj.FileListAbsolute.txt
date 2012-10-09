@@ -38,3 +38,43 @@ C:\Users\PeePeeSpeed\Desktop\Project Backups\Avateering-XNA v2.2 07-09-2012\Avat
 C:\Users\PeePeeSpeed\Desktop\Project Backups\Avateering-XNA v2.2 07-09-2012\Avateering\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\PeePeeSpeed\Desktop\Project Backups\Avateering-XNA v2.2 07-09-2012\Avateering\obj\x86\Debug\Avateering.exe
 C:\Users\PeePeeSpeed\Desktop\Project Backups\Avateering-XNA v2.2 07-09-2012\Avateering\obj\x86\Debug\Avateering.pdb
+C:\Users\Jimmy\Desktop\Project Items\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\dude.xnb
+C:\Users\Jimmy\Desktop\Project Items\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\ChooserBackground.xnb
+C:\Users\Jimmy\Desktop\Project Items\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\Joint.xnb
+C:\Users\Jimmy\Desktop\Project Items\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\Bone.xnb
+C:\Users\Jimmy\Desktop\Project Items\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\Header.xnb
+C:\Users\Jimmy\Desktop\Project Items\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\Segoe16.xnb
+C:\Users\Jimmy\Desktop\Project Items\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\KinectDepthVisualizer.xnb
+C:\Users\Jimmy\Desktop\Project Items\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\head_0.xnb
+C:\Users\Jimmy\Desktop\Project Items\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\jacket_0.xnb
+C:\Users\Jimmy\Desktop\Project Items\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\pants_0.xnb
+C:\Users\Jimmy\Desktop\Project Items\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\upBodyC_0.xnb
+C:\Users\Jimmy\Desktop\Project Items\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\dude.fbx
+C:\Users\Jimmy\Desktop\Project Items\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Avateering.exe
+C:\Users\Jimmy\Desktop\Project Items\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Avateering.pdb
+C:\Users\Jimmy\Desktop\Project Items\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\SkinnedModel.dll
+C:\Users\Jimmy\Desktop\Project Items\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\SkinnedModel.pdb
+C:\Users\Jimmy\Desktop\Project Items\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Jimmy\Desktop\Project Items\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Jimmy\Desktop\Project Items\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\obj\x86\Debug\Avateering.exe
+C:\Users\Jimmy\Desktop\Project Items\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\obj\x86\Debug\Avateering.pdb
+C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\dude.xnb
+C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\ChooserBackground.xnb
+C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\Joint.xnb
+C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\Bone.xnb
+C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\Header.xnb
+C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\Segoe16.xnb
+C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\KinectDepthVisualizer.xnb
+C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\head_0.xnb
+C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\jacket_0.xnb
+C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\pants_0.xnb
+C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\upBodyC_0.xnb
+C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Content\dude.fbx
+C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Avateering.exe
+C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\Avateering.pdb
+C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\SkinnedModel.dll
+C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\bin\x86\Debug\SkinnedModel.pdb
+C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\obj\x86\Debug\Avateering.exe
+C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\obj\x86\Debug\Avateering.pdb

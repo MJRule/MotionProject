@@ -1,2 +1,4 @@
 C:\Users\PeePeeSpeed\Desktop\Avateering-XNA\Avateering\Content\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\PeePeeSpeed\Desktop\Project Backups\Avateering-XNA v2.2 07-09-2012\Avateering\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Jimmy\Desktop\Project Items\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\Avateering\Content\obj\x86\Debug\ResolveAssemblyReference.cache

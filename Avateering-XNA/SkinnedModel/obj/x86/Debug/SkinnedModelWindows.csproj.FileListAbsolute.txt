@@ -10,3 +10,15 @@ C:\Users\PeePeeSpeed\Desktop\Project Backups\Avateering-XNA v2.2 07-09-2012\Skin
 C:\Users\PeePeeSpeed\Desktop\Project Backups\Avateering-XNA v2.2 07-09-2012\SkinnedModel\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\PeePeeSpeed\Desktop\Project Backups\Avateering-XNA v2.2 07-09-2012\SkinnedModel\obj\x86\Debug\SkinnedModel.dll
 C:\Users\PeePeeSpeed\Desktop\Project Backups\Avateering-XNA v2.2 07-09-2012\SkinnedModel\obj\x86\Debug\SkinnedModel.pdb
+C:\Users\Jimmy\Desktop\Project Items\MJRule-MotionProject-(prolouges)\Avateering-XNA\SkinnedModel\bin\x86\Debug\SkinnedModel.dll
+C:\Users\Jimmy\Desktop\Project Items\MJRule-MotionProject-(prolouges)\Avateering-XNA\SkinnedModel\bin\x86\Debug\SkinnedModel.pdb
+C:\Users\Jimmy\Desktop\Project Items\MJRule-MotionProject-(prolouges)\Avateering-XNA\SkinnedModel\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Jimmy\Desktop\Project Items\MJRule-MotionProject-(prolouges)\Avateering-XNA\SkinnedModel\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Jimmy\Desktop\Project Items\MJRule-MotionProject-(prolouges)\Avateering-XNA\SkinnedModel\obj\x86\Debug\SkinnedModel.dll
+C:\Users\Jimmy\Desktop\Project Items\MJRule-MotionProject-(prolouges)\Avateering-XNA\SkinnedModel\obj\x86\Debug\SkinnedModel.pdb
+C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\SkinnedModel\bin\x86\Debug\SkinnedModel.dll
+C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\SkinnedModel\bin\x86\Debug\SkinnedModel.pdb
+C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\SkinnedModel\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\SkinnedModel\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\SkinnedModel\obj\x86\Debug\SkinnedModel.dll
+C:\Users\PeePeeSpeed\Desktop\Project Backups\MJRule-MotionProject-(prolouges)\Avateering-XNA\SkinnedModel\obj\x86\Debug\SkinnedModel.pdb
